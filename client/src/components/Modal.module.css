@@ -1,0 +1,36 @@
+/* Modal.module.css */
+
+/* Backdrop Styles */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 100;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 101;
+  border-radius: 3px;
+}
+
+/* Modal Content Styles */
+.content {
+  padding: 50px 30px;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+  .modal {
+    width: 80%;
+  }
+}
