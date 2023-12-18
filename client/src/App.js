@@ -14,8 +14,8 @@ import Teams from "./Teams";
 const projects = [
   "Simulators",
   "Letrico",
-  "Desempregados",
   "Web Quiz",
+  "Desempregados",
   "Pomodoro Timer",
 ];
 const articles = ["page1", "page2", "page3", "page4", "page5"];

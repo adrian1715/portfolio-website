@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Fragment } from "react";
 import NavLinkDropdown from "./NavLinkDropdown";
+import { formatLinkPath } from "../utils/linkPathFormatter";
 
 export default function Navbar({ links }) {
   return (
@@ -36,8 +37,7 @@ export default function Navbar({ links }) {
                         `nav-link ${isActive ? "active fw-bold" : ""}`
                       }
                     >
-                      {link.path.split("/")[1].charAt(0).toUpperCase() +
-                        link.path.slice(2)}
+                      {formatLinkPath(link.path)}
                     </NavLink>
                   </li>
                 )}
