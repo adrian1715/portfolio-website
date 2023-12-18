@@ -7,31 +7,50 @@ import NewPerson from "./pages/NewPerson";
 import Projects from "./pages/Projects";
 import Letrico from "./components/projects/Letrico";
 import NotFound from "./pages/NotFound";
+import Test from "./Test";
+import Teams from "./Teams";
 
-const navLinks = ["People", "Page"]; // make the current link to be active
-const projects = ["Simulators", "Letrico", "Desempregados"];
+// dropdown items
+const projects = [
+  "Simulators",
+  "Letrico",
+  "Desempregados",
+  "Web Quiz",
+  "Pomodoro Timer",
+];
+const articles = ["page1", "page2", "page3", "page4", "page5"];
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootElement links={navLinks} projects={projects} />,
+    element: <RootElement />,
     errorElement: <NotFound />,
     children: [
+      { index: true, element: <Home /> },
       {
-        index: true,
-        element: <Home />,
-      },
-      {
-        // index: true,
         path: "/people",
         element: <People />,
+        navLink: true,
         children: [{ path: "new", element: <NewPerson /> }],
       },
-      { path: "/projects", element: <Projects /> },
+      { path: "/teams", element: <Teams />, navLink: true },
+      {
+        path: "/projects",
+        element: <Projects />,
+        navLink: true,
+        type: "dropwdown",
+        items: projects,
+      },
       { path: "/projects/letrico", element: <Letrico /> },
+      { path: "/articles", navLink: true, type: "dropdown", items: articles },
+      { path: "/tests", element: <Test />, navLink: true },
     ],
   },
 ]);
+
+export const links = router.routes[0].children.filter(
+  (link) => link.navLink === true
+);
 
 function App() {
   return <RouterProvider router={router} />;

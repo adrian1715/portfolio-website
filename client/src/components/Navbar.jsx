@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { Fragment } from "react";
+import NavLinkDropdown from "./NavLinkDropdown";
 
-export default function Navbar({ links, projects }) {
+export default function Navbar({ links }) {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -21,31 +23,26 @@ export default function Navbar({ links, projects }) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {links.map((link, index) => (
-              <li key={index} className="nav-link">
-                <Link to={`/${link.toLowerCase()}`}>{link}</Link>
-              </li>
-            ))}
-            <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle"
-                role="button"
-                data-bs-toggle="dropdown"
-              >
-                Projects
-              </Link>
-              <ul className="dropdown-menu">
-                {projects.map((project, index) => (
-                  <li key={index}>
-                    <a
-                      className="dropdown-item"
-                      href={`/projects/${project.toLowerCase()}`}
+              <Fragment key={index}>
+                {link.type ? (
+                  // if there's a dropdown
+                  <NavLinkDropdown link={link} />
+                ) : (
+                  // simple links (no dropdown)
+                  <li key={index} className="nav-item">
+                    <NavLink
+                      to={link.path}
+                      className={({ isActive }) =>
+                        `nav-link ${isActive ? "active fw-bold" : ""}`
+                      }
                     >
-                      {project}
-                    </a>
+                      {link.path.split("/")[1].charAt(0).toUpperCase() +
+                        link.path.slice(2)}
+                    </NavLink>
                   </li>
-                ))}
-              </ul>
-            </li>
+                )}
+              </Fragment>
+            ))}
           </ul>
           <form className="d-flex" role="search">
             <div className="input-group">
