@@ -18,7 +18,7 @@ const projects = [
   "Desempregados",
   "Pomodoro Timer",
 ];
-const articles = ["page1", "page2", "page3", "page4", "page5"];
+// const articles = ["page1", "page2", "page3", "page4", "page5"];
 
 const router = createBrowserRouter([
   {
@@ -27,6 +27,7 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
+      { path: "/about-me", navLink: true },
       {
         path: "/people",
         element: <People />,
@@ -42,8 +43,7 @@ const router = createBrowserRouter([
         items: projects,
       },
       { path: "/projects/letrico", element: <Letrico /> },
-      { path: "/articles", navLink: true, type: "dropdown", items: articles },
-      { path: "/tests", element: <Test />, navLink: true },
+      { path: "/contact", element: <Test />, navLink: true },
     ],
   },
 ]);
