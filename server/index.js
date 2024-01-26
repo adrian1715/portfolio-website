@@ -1,17 +1,10 @@
 const express = require("express");
 const app = express();
-const mysql = require("mysql");
+const db = require("./db");
 const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
-
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "my_website",
-});
 
 app.get("/api/people", (req, res) => {
   const q = "SELECT * FROM people";
