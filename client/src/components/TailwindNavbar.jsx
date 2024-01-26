@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { formatLinkPath } from "../utils/linkPathFormatter";
+import ThemeToggler from "./ThemeToggler";
 
 // const navigation = [
 //   { name: "Dashboard", href: "#", current: true },
@@ -72,6 +73,7 @@ export default function TailwindNavbar({ links }) {
                       </NavLink>
                     ))}
                   </div>
+                  <ThemeToggler />
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -92,7 +94,7 @@ export default function TailwindNavbar({ links }) {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://tntsports.com.br/__export/1698255133507/sites/esporteinterativo/img/2023/10/25/dorival_jr_-_gazeta-press-foto-1953328.jpg_153670003.jpg"
+                        src="https://pbs.twimg.com/media/CvTzfk3WEAAa_YX.jpg"
                         alt=""
                       />
                     </Menu.Button>

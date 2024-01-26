@@ -30,3 +30,8 @@ code {
 .error-text {
   color: #b40e0e;
 }
+
+:is(:where(.dark)) body {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
