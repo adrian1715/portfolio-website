@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
-const ThemeToggler = () => {
+const ThemeToggler = ({ ...props }) => {
   useEffect(() => {
     if (!theme) {
       setTheme("light");
@@ -21,7 +21,7 @@ const ThemeToggler = () => {
   }, [theme]);
 
   return (
-    <div className="flex items-center">
+    <div {...props}>
       <input
         type="radio"
         id="switch"
@@ -35,7 +35,7 @@ const ThemeToggler = () => {
         className="flex items-center cursor-pointer select-none"
       >
         <div
-          className={`w-10 h-4 flex items-center justify-between p-1 mx-2 transition duration-300 ${
+          className={`w-10 h-4 flex items-center justify-between p-1 me-2 transition duration-300 ${
             theme === "dark" ? "bg-blue-500" : "bg-gray-300"
           } rounded-full`}
         >
@@ -46,7 +46,7 @@ const ThemeToggler = () => {
           ></div>
         </div>
         <div
-          className={`w-20 flex items-center ${
+          className={`w-14 flex items-center ${
             theme === "dark" ? "text-blue-500" : "text-gray-600"
           }`}
         >
