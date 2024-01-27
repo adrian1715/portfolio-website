@@ -26,7 +26,7 @@ const ThemeToggler = () => {
         type="radio"
         id="switch"
         name="switch"
-        className="hidden"
+        className="hidden opacity-0 absolute"
         checked={theme}
         onChange={toggleTheme}
       />

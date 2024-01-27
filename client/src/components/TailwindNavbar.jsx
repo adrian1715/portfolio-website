@@ -5,6 +5,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { formatLinkPath } from "../utils/linkPathFormatter";
 import ThemeToggler from "./ThemeToggler";
 
+// default navigation model for this component
 // const navigation = [
 //   { name: "Dashboard", href: "#", current: true },
 //   { name: "Team", href: "#", current: false },
@@ -17,10 +18,8 @@ function classNames(...classes) {
 }
 
 export default function TailwindNavbar({ links }) {
-  console.log(links);
-
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-800 text-white">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -45,7 +44,7 @@ export default function TailwindNavbar({ links }) {
                       src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                       alt="Your Company"
                     />
-                    <div className="p-4 bg-primary">My Website</div>
+                    <div className="p-4 bg-primary">My Portfolio Website</div>
                   </div>
                 </Link>
                 <div className="hidden sm:ml-6 sm:flex items-center">

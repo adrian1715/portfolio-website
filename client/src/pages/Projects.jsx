@@ -12,8 +12,8 @@ export default function Projects() {
       <h1>Projects</h1>
       <ul>
         {projects.length > 0 ? (
-          projects.map((project) => (
-            <li>
+          projects.map((project, i) => (
+            <li key={i} className="text-lg">
               {/* <Link> doesn't load vanilla javascript projects */}
               <a
                 href={`/projects/${toLinkFormatter(project)}`}
