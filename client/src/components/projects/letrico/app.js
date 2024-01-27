@@ -1,3 +1,5 @@
+const { words } = require("./words.json");
+
 // LETRICO COLORS GENERATOR
 for (var i = 1; i <= 7; i++) {
   switch (Math.floor(Math.random() * 5) + 1) {
@@ -18,109 +20,25 @@ for (var i = 1; i <= 7; i++) {
 // API para gerar palavras aleatórias
 const makeRandomWord = async () => {
   try {
-    let res = await axios.get("https://api.dicionario-aberto.net/random");
-    while (res.data.word.length != 5) {
-      res = await axios.get("https://api.dicionario-aberto.net/random");
+    let res = await fetch("https://api.dicionario-aberto.net/random");
+    let data = await res.json();
+
+    while (data.word.length !== 5) {
+      res = await fetch("https://api.dicionario-aberto.net/random");
+      data = await res.json();
     }
-    console.log("Palavra aleatória: ", res.data.word);
+
+    console.log("Palavra aleatória: ", data.word);
   } catch (e) {
     console.log("error: ", e);
   }
 };
 
-const words = [
-  "local",
-  "lugar",
-  "norte",
-  "tanto",
-  "corte",
-  "forte",
-  "fonte",
-  "chute",
-  "sagaz",
-  "negro",
-  "mexer",
-  "termo",
-  "senso",
-  "nobre",
-  "algoz",
-  "afeto",
-  "sutil",
-  "vigor",
-  "fazer",
-  "sanar",
-  "assim",
-  "desde",
-  "ideia",
-  "fosse",
-  "moral",
-  "poder",
-  "sonho",
-  "vinil",
-  "teste",
-  "pardo",
-  "verde",
-  "vasco",
-  "casco",
-  "honra",
-  "muito",
-  "justo",
-  "anexo",
-  "pedra",
-  "papel",
-  "haver",
-  "amigo",
-  "posse",
-  "tempo",
-  "causa",
-  "dizer",
-  "digno",
-  "letra",
-  "legal",
-  "coisa",
-  "plano",
-  "circo",
-  "piano",
-  "antes",
-  "louco",
-  "cacto",
-  "carro",
-  "arroz",
-  "viver",
-  "morte",
-  "nadar",
-  "mudar",
-  "andar",
-  "salve",
-  "tente",
-  "ponte",
-  "poste",
-  "porte",
-  "lente",
-  "vento",
-  "lento",
-  "pobre",
-  "pombo",
-  "lombo",
-  "pizza",
-  "tonto",
-  "canto",
-  "santo",
-  "conto",
-];
-
-// apenas para teste:
-// const words = ['alfaz', 'chuta'];
-
 const keyword = words[Math.floor(Math.random() * words.length)]; // PALAVRA-CHAVE SORTEADA
-// const chute = document.getElementById("chute"); // input de chute
-// const chutar = document.getElementById("chutar"); // botão de submit do chute
 const form = document.querySelector("form");
 
 let guess = [],
   cont = 0;
-
-// guess[guess.length] = "TESTE";
 
 // ARRUMAR A VERIFICAÇÃO DE CHUTES VÁLIDOS
 
@@ -161,7 +79,6 @@ export function submitHandler(e) {
 
       chute.value = "";
     }
-    // return "";
   } // adicionar verificação para palavras repetidas
   else {
     if (cont < 6) {
@@ -346,6 +263,7 @@ export function submitHandler(e) {
         msg.innerText = `Suas tentativas acabaram! A palavra correta era ${keyword}`;
 
         chute.value = "";
+        chute.disabled = "true";
         chutar.disabled = "true";
       }
 

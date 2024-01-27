@@ -36,7 +36,7 @@ export default function Letrico() {
 
         <div id="words">
           {/* <!-- PRIMEIRA PALAVRA --> */}
-          <div id="first-word" class="d-flex justify-content-center mb-3">
+          <div id="first-word" class="flex justify-center mb-3">
             {/* <!-- PRIMEIRA LETRA --> */}
             <button
               id="firstA"
@@ -75,7 +75,7 @@ export default function Letrico() {
           </div>
 
           {/* <!-- SEGUNDA PALAVRA --> */}
-          <div id="second-word" class="d-flex justify-content-center mb-3">
+          <div id="second-word" class="flex justify-center mb-3">
             {/* <!-- PRIEMIRA LETRA --> */}
             <button
               id="secondA"
@@ -114,7 +114,7 @@ export default function Letrico() {
           </div>
 
           {/* <!-- TERCEIRA PALAVRA --> */}
-          <div id="third-word" class="d-flex justify-content-center mb-3">
+          <div id="third-word" class="flex justify-center mb-3">
             <button
               id="thirdA"
               class="btn letter-wrapper rounded displaced me-2 border"
@@ -152,7 +152,7 @@ export default function Letrico() {
           </div>
 
           {/* <!-- QUARTA PALAVRA --> */}
-          <div id="fourth-word" class="d-flex justify-content-center mb-3">
+          <div id="fourth-word" class="flex justify-center mb-3">
             <button
               id="fourthA"
               class="btn letter-wrapper border rounded displaced me-2"
@@ -190,7 +190,7 @@ export default function Letrico() {
           </div>
 
           {/* <!-- QUINTA PALAVRA --> */}
-          <div id="fifth-word" class="d-flex justify-content-center mb-3">
+          <div id="fifth-word" class="flex justify-center mb-3">
             <button
               id="fifthA"
               class="btn letter-wrapper border rounded displaced me-2"
@@ -228,7 +228,7 @@ export default function Letrico() {
           </div>
 
           {/* <!-- SEXTA PALAVRA --> */}
-          <div id="sixth-word" class="d-flex justify-content-center mb-3">
+          <div id="sixth-word" class="flex justify-center mb-3">
             <button
               id="sixthA"
               class="btn letter-wrapper border rounded displaced me-2"
@@ -270,26 +270,27 @@ export default function Letrico() {
         <div id="message"></div>
         <br />
 
-        <div id="keyboard" class="d-flex justify-content-center">
-          {/* <!-- <input type="text" placeholder="Enter text" onblur="getVal()" /> --> */}
-          {/* <!-- <input type="checkbox" onchange="getChecked()" id="check1" /> --> */}
-
-          {submitHandler && (
-            <form action="#" onSubmit={submitHandler} class="input-group w-50">
+        <div id="keyboard" class="text-center">
+          <br />
+          {/* {submitHandler && ( */}
+          <form action="#" onSubmit={submitHandler} className="">
+            <div className="flex justify-center items-center">
               <input
                 id="chute"
-                class="form-control"
+                className="py-3 border-y-0 border-l-0 border-r rounded-l w-3/12"
                 type="text"
                 placeholder="Chute uma palavra"
               />
-              <button id="chutar" class="btn btn-light" type="submit">
-                Enviar
+              <button
+                id="chutar"
+                className="btn hover:bg-gray-200 !rounded-l-none"
+                type="submit"
+              >
+                Chutar
               </button>
-            </form>
-          )}
-
-          <br />
-          <br />
+            </div>
+          </form>
+          {/* )} */}
         </div>
       </div>
 

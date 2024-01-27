@@ -1,9 +1,32 @@
 import React from "react";
+import { links } from "../App";
+import { toLinkFormatter } from "../utils/toLinkFormatter";
 
 export default function Projects() {
+  const { items: projects } = links.filter(
+    (link) => link.path === "/projects"
+  )[0];
+
   return (
-    <div>
+    <>
       <h1>Projects</h1>
-    </div>
+      <ul>
+        {projects.length > 0 ? (
+          projects.map((project) => (
+            <li>
+              {/* <Link> doesn't load vanilla javascript projects */}
+              <a
+                href={`/projects/${toLinkFormatter(project)}`}
+                className="text-blue-600 no-underline hover:underline"
+              >
+                {project}
+              </a>
+            </li>
+          ))
+        ) : (
+          <li>No projects were found.</li>
+        )}
+      </ul>
+    </>
   );
 }
