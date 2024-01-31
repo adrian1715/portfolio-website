@@ -35,63 +35,60 @@ const makeRandomWord = async () => {
 };
 
 const keyword = words[Math.floor(Math.random() * words.length)]; // PALAVRA-CHAVE SORTEADA
-const form = document.querySelector("form");
+// const form = document.querySelector("form");
+// const chute = document.getElementById("chute");
+// const chutar = document.getElementById("chutar"); // botão de submit do chute
 
 let guess = [],
-  cont = 0;
+  wordCount = 0;
 
-// ARRUMAR A VERIFICAÇÃO DE CHUTES VÁLIDOS
+// form.addEventListener("submit", (e) => submitHandler(e, chute.value));
 
-form.addEventListener("submit", (e) => submitHandler(e));
 export function submitHandler(e) {
   e.preventDefault();
+
+  const letras = ["A", "B", "C", "D", "E"];
+
+  let chuteValue = e.target.elements.chute.value.toLowerCase();
+
   let msg;
   // if there's a message
   const message = document.getElementById("message");
   if (message.children.length > 0) {
-    console.log("there's a message");
     message.removeChild(document.querySelector("p"));
   }
 
-  const letras = ["A", "B", "C", "D", "E"];
-
-  const chute = document.getElementById("chute");
-  chute.value = chute.value.toLowerCase(); // transforma todas as letras em minúsculas (para continuar reconhecível caso o usuário digite alguma letra maiúscula)
-  const chutar = document.getElementById("chutar"); // botão de submit do chute
-
   // LÓGICA PARA VERIFICAÇÃO DE PALAVRA
   if (
-    cont != 7 &&
-    (chute.value.length != 5 || words.includes(chute.value) === false)
+    wordCount != 7 &&
+    (chuteValue.length != 5 || words.includes(chuteValue) === false)
   ) {
-    if (chute.value.length != 5) {
+    if (chuteValue.length != 5) {
       console.log("Chute uma palavra de 5 letras");
 
       msg = document.createElement("p");
       msg.innerText = "Chute uma palavra de 5 letras!";
-
-      chute.value = "";
-    } else if (words.includes(chute.value) === false) {
+    } else if (words.includes(chuteValue) === false) {
       console.log("Palavra inválida! Tente outra palavra!");
 
       msg = document.createElement("p");
       msg.innerText = "Palavra inválida! Tente outra palavra!";
+    }
+    if (!chuteValue) {
+      console.log("Insira uma palavra para chutar!");
 
-      chute.value = "";
+      msg = document.createElement("p");
+      msg.innerText = "Insira uma palavra para chutar!";
     }
-  } // adicionar verificação para palavras repetidas
-  else {
-    if (cont < 6) {
-      cont++;
-      guess.push(chute.value);
-      chute.value = "";
-      console.log("Seus chutes: ", guess);
-    }
+  } else if (wordCount < 6) {
+    wordCount++;
+    guess.push(chuteValue);
+    console.log("Seus chutes: ", guess);
   }
 
-  if (chute.value != "") chute.value = "";
+  if (chuteValue != "") chute.value = ""; // we don't need to redefine chuteValue to "" since it will be redeclared when re-executing this function later
 
-  switch (cont) {
+  switch (wordCount) {
     case 1:
       for (let i = 0; i < 5; i++) {
         // PARA ADICIONAR VISUALMENTE A PALAVRA INSERIDA - PRIMEIRA PALAVRA/TENTATIVA
@@ -255,14 +252,13 @@ export function submitHandler(e) {
 
       // CASO NENHUMA DAS TENTATIVAS SEJAM CORRETAS
       if (guess[guess.length - 1] != keyword) {
-        cont++;
+        wordCount++;
         console.log("Suas tentativas acabaram :(");
         console.log("Palavra correta era: ", keyword);
 
         msg = document.createElement("p");
-        msg.innerText = `Suas tentativas acabaram! A palavra correta era ${keyword}`;
+        msg.innerText = `Suas tentativas acabaram! A palavra correta era: ${keyword}`;
 
-        chute.value = "";
         chute.disabled = "true";
         chutar.disabled = "true";
       }
@@ -277,9 +273,10 @@ export function submitHandler(e) {
     msg = document.createElement("p");
     msg.innerText = "Parabéns, você ganhou!";
 
+    chute.disabled = "true";
     chutar.disabled = "true";
     guess = [];
-    cont = 7;
+    wordCount = 7;
   }
   if (msg) message.appendChild(msg);
 }
