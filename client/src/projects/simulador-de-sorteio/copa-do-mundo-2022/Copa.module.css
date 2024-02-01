@@ -1,0 +1,102 @@
+.body {
+  color: white !important;
+  background-image: url("https://i.pinimg.com/originals/6f/71/4f/6f714f9e9b3eab30ccec71f3b888ca28.png");
+  background-repeat: no-repeat;
+  background-size: 100% 1457px; /* horizontal vertical */
+  padding-bottom: 14px;
+}
+
+/* para o background-size não se alterar após o sorteio */
+@media (max-width: 1199px) {
+  body {
+    background-size: 100% 1505px;
+  }
+}
+
+@media (max-width: 991px) {
+  /* medium */
+  body {
+    height: 100%;
+    background-size: 100% 2242px;
+  }
+}
+@media (max-width: 767px) {
+  /* small */
+  body {
+    background-size: 100% 2603px;
+  }
+  #ver-grupos {
+    display: none;
+  }
+}
+@media (max-width: 575px) {
+  /* extra small */
+  body {
+    background-size: 100% 3163px;
+  }
+
+  #potes ul {
+    text-align: center;
+  }
+}
+
+.jogos p {
+  margin-top: 3px;
+}
+
+.rodada-1,
+.rodada-2 {
+  margin-bottom: 10px !important;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 10px !important;
+}
+
+p {
+  margin-bottom: 10px !important;
+}
+
+ul p {
+  margin-bottom: 0 !important;
+}
+
+li span {
+  display: flex;
+  align-items: center;
+}
+
+.pote li {
+  display: flex;
+  height: 25px;
+  margin-top: 5px;
+}
+
+.escudos {
+  display: inline-block;
+  width: 35px;
+  height: auto;
+  margin-right: 5px;
+}
+
+.suica {
+  /* bandeira quadrada */
+  height: 25px;
+  width: 25px;
+  margin: 0 10px 0 5px;
+}
+
+.jogos {
+  margin: 10px 0 5px 0 !important;
+}
+
+#a1A {
+  margin-left: 0 !important;
+}
+
+.transição {
+  background-image: url("https://http2.mlstatic.com/D_NQ_NP_655940-MLB42150654701_062020-O.jpg");
+  background-position: 100%;
+  height: 21vh;
+}

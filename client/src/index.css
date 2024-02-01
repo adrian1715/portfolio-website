@@ -120,6 +120,14 @@ input:disabled {
   border-color: #212529;
 }
 
+.link {
+  color: rgb(37 99 235);
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
 /* dark theme */
 
 :is(:where(.dark)) body {
