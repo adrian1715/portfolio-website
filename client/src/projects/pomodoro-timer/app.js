@@ -1,3 +1,9 @@
+import tetra from "./assets/acabouuu.m4a";
+import hurt from "./assets/hurt.mp3";
+
+const tetraSound = new Audio(tetra);
+const hurtSound = new Audio(hurt);
+
 const titleTag = document.querySelector("title");
 
 const studyTimerBtn = document.getElementById("study-timer-btn");
@@ -11,8 +17,8 @@ const timerButtons = document.getElementsByClassName("timer-btn");
 const pomodoros = document.getElementById("pomodoros");
 let pomodorosQty = 0;
 
-const hurtSound = document.getElementById("hurt-sound");
-const tetraSound = document.getElementById("tetra-sound");
+// const hurtSound = document.getElementById("hurt-sound");
+// const tetraSound = document.getElementById("tetra-sound");
 
 function formatTime(timeInSeconds) {
   const minutes = Math.floor(timeInSeconds / 60);
@@ -30,7 +36,6 @@ function startTimer(timeInMin) {
     button.disabled = true;
   }
 
-  // let seconds = 2;
   let seconds = timeInMin * 60; // change it to test
   timer = setInterval(() => {
     seconds--;
@@ -63,6 +68,7 @@ function startTimer(timeInMin) {
 }
 
 let isPaused = false;
+let currentSeconds;
 function pause() {
   if (isPaused) {
     const currentTime = timerDisplay.innerText.split(":");

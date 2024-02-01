@@ -1,13 +1,11 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import ReactDOM from "react-dom";
 import styles from "./Timer.module.css";
 import { ClockIcon } from "@heroicons/react/24/outline";
-import Head from "react-helmet";
 
 export default function Timer() {
-  const [submitHandler, setSubmitHandler] = useState();
-
   async function imports() {
-    console.log("trying to import");
+    console.log("importing app");
     try {
       await import("./app");
     } catch (err) {
@@ -21,16 +19,6 @@ export default function Timer() {
 
   return (
     <>
-      <Head>
-        <title>Pomodoro Timer</title>
-        {/* <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-          crossorigin="anonymous"
-        /> */}
-      </Head>
-
       <h1 class="display-1">
         Pomodoro Timer
         <ClockIcon className="max-w-8 inline-block ms-2 mb-1" />
@@ -73,10 +61,7 @@ export default function Timer() {
         Pomodoros: <span id="pomodoros">0</span>
       </h2>
 
-      <audio id="hurt-sound" src="assets/hurt.mp3" preload="auto"></audio>
-      <audio id="tetra-sound" src="assets/acabouuu.m4a" preload="auto"></audio>
-
-      {/* {ReactDOM.createPortal(
+      {ReactDOM.createPortal(
         <>
           <audio id="hurt-sound" src="assets/hurt.mp3" preload="auto"></audio>
           <audio
@@ -86,7 +71,7 @@ export default function Timer() {
           ></audio>
         </>,
         document.querySelector("body")
-      )} */}
+      )}
     </>
   );
 }
