@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 
 export default function Letrico() {
@@ -47,9 +47,9 @@ export default function Letrico() {
                 <button
                   key={letter}
                   id={`${count}${letter}`}
-                  className={`!font-bold btn ${
+                  className={`!font-bold !cursor-default btn ${
                     count === "first" ? "btn-light" : ""
-                  } letter-wrapper rounded displaced me-2 border`}
+                  } letter-wrapper rounded displaced me-2 border disabled:opacity-100`}
                   disabled
                 >
                   _
@@ -73,7 +73,7 @@ export default function Letrico() {
             />
             <button
               id="chutar"
-              className={`btn bg-gray-300 hover:bg-gray-200 disabled:hover:bg-gray-300 !rounded-l-none text-black disabled:cursor-not-allowed`}
+              className={`btn bg-gray-300 hover:bg-gray-200 disabled:hover:bg-gray-300 !rounded-l-none !text-black disabled:cursor-not-allowed`}
               type="submit"
             >
               Chutar
@@ -86,10 +86,6 @@ export default function Letrico() {
         <b>NOTE: </b>This app was originally made in vanilla JavaScript and
         adapted to React here!
       </p>
-      {ReactDOM.createPortal(
-        <script src="../src/components/projects/app.js"></script>,
-        document.getElementById("vanilla-scripts")
-      )}
     </>
   );
 }
