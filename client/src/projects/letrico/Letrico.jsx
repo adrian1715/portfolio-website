@@ -37,7 +37,6 @@ export default function Letrico() {
         <br />
 
         <div id="words">
-          {/* <!-- PRIMEIRA PALAVRA --> */}
           {ids.count.map((count) => (
             <div
               key={count}
@@ -64,28 +63,26 @@ export default function Letrico() {
         <div id="message"></div>
         <br />
 
-        {/* <div id="keyboard" class="text-center"> */}
         <form action="#" onSubmit={submitHandler}>
           <div className="flex justify-center items-center">
             <input
               id="chute"
-              className="py-1.5 rounded-l w-3/12 text-black border dark:border-[3px]"
+              className="p-1.5 rounded-l w-3/12 text-black border"
               type="text"
               placeholder="Chute uma palavra"
             />
             <button
               id="chutar"
-              className={`btn bg-gray-300 hover:active:bg-gray-200  !rounded-l-none text-black disabled:cursor-not-allowed`}
+              className={`btn bg-gray-300 hover:bg-gray-200 disabled:hover:bg-gray-300 !rounded-l-none text-black disabled:cursor-not-allowed`}
               type="submit"
             >
               Chutar
             </button>
           </div>
         </form>
-        {/* </div> */}
       </div>
 
-      <p style={{ position: "fixed", bottom: 0 }}>
+      <p className="fixed bottom-0">
         <b>NOTE: </b>This app was originally made in vanilla JavaScript and
         adapted to React here!
       </p>

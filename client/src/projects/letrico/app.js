@@ -2,7 +2,7 @@
 import { words } from "./words.json";
 
 // LETRICO COLORS GENERATOR
-for (var i = 1; i <= 7; i++) {
+for (let i = 1; i <= 7; i++) {
   switch (Math.floor(Math.random() * 5) + 1) {
     case 1:
       document.querySelector(`.let-${i}`).style.color = "green";
@@ -87,7 +87,7 @@ export function submitHandler(e) {
     console.log("Seus chutes: ", guess);
   }
 
-  if (chuteValue != "") chute.value = ""; // we don't need to redefine chuteValue to "" since it will be redeclared when re-executing this function later
+  if (chuteValue != "") chute.value = ""; // chuteValue não precisa ser redefinido
 
   switch (wordCount) {
     case 1:
@@ -279,20 +279,6 @@ export function submitHandler(e) {
     guess = [];
     wordCount = 7;
   }
+
   if (msg) message.appendChild(msg);
 }
-
-// TECLADO:
-// function getVal() {
-//   const val = document.querySelector("input").value;
-//   console.log(val);
-// }
-
-// function getChecked() {
-//   const checkBox = document.getElementById("check1").checked;
-//   if (checkBox === true) {
-//     console.log(true);
-//   } else {
-//     console.log(false);
-//   }
-// }

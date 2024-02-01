@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import People from "./pages/People";
 import NewPerson from "./pages/NewPerson";
 import Projects from "./pages/Projects";
-import Letrico from "./components/projects/letrico/Letrico";
+import Letrico from "./projects/letrico/Letrico";
 import NotFound from "./pages/NotFound";
 import Test from "./Test";
 import Teams from "./Teams";
