@@ -9,6 +9,7 @@ import Letrico from "./projects/letrico/Letrico";
 import NotFound from "./pages/NotFound";
 import Test from "./Test";
 import Teams from "./Teams";
+import Timer from "./projects/pomodoro-timer/Timer";
 
 // dropdown items
 const projects = [
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
         items: projects,
       },
       { path: "/projects/letrico", element: <Letrico /> },
+      { path: "/projects/pomodoro-timer", element: <Timer /> },
       { path: "/contact", element: <Test />, navLink: true },
     ],
   },
