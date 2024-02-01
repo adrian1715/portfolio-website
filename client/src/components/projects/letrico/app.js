@@ -1,4 +1,5 @@
-const { words } = require("./words.json");
+// const { words } = require("./words.json");
+import { words } from "./words.json";
 
 // LETRICO COLORS GENERATOR
 for (var i = 1; i <= 7; i++) {

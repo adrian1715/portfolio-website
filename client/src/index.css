@@ -1,5 +1,5 @@
 /* importing tailwindcss */
-/* disable html default styles */
+/* @tailwind base disables html default styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
