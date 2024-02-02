@@ -1,13 +1,13 @@
-body {
+.body {
   color: white !important;
 }
 
-h1 {
+.h1 {
   text-align: center;
   padding-top: 10px !important;
 }
 
-p {
+.p {
   margin-bottom: 10px !important;
 }
 
@@ -20,22 +20,22 @@ p {
 }
 /* para o background-size não se alterar após o sorteio */
 @media (max-width: 991px) {
-  #libertadores {
+  .libertadores {
     background-size: 100% 1482px;
   }
 }
 @media (max-width: 767px) {
-  #libertadores {
+  .libertadores {
     background-size: 100% 1687px;
   }
 }
 @media (max-width: 480px) {
-  #libertadores {
+  .libertadores {
     background-size: 100% 2353px;
   }
 }
 @media (max-width: 400px) {
-  #libertadores {
+  .libertadores {
     background-size: 100% 3184px;
   }
 }
@@ -47,12 +47,12 @@ p {
   }
 }
 
-li span {
+.li .span {
   display: flex;
   align-items: center;
 }
 
-.pote li {
+.pote .li {
   display: flex;
   height: 25px;
   margin-top: 5px;
@@ -65,7 +65,7 @@ li span {
   margin-right: 5px;
 }
 
-#a1A {
+.a1A {
   margin-left: 0 !important;
 }
 
@@ -79,7 +79,7 @@ li span {
   height: 21vh;
 }
 
-#sul-americana {
+.sul-americana {
   background-image: url("../../../../images/Simulador\ de\ Sorteio\ -\ Times/bg-1.jpg");
   background-repeat: no-repeat;
   background-size: 100% 1090px;
@@ -88,26 +88,26 @@ li span {
 }
 /* para o background-size não se alterar após o sorteio */
 @media (max-width: 991px) {
-  #sul-americana {
+  .sul-americana {
     background-size: 100% 1556px;
   }
 }
 @media (max-width: 767px) {
-  #sul-americana {
+  .sul-americana {
     background-size: 100% 1761px;
   }
 }
 @media (max-width: 480px) {
-  #sul-americana {
+  .sul-americana {
     background-size: 100% 2475px;
   }
 }
 @media (max-width: 400px) {
-  #sul-americana {
+  .sul-americana {
     background-size: 100% 3539px;
   }
 }
 
-#sula-logo {
+.sula-logo {
   margin-bottom: 0 !important;
 }

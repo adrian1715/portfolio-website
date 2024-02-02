@@ -67,7 +67,7 @@ export default function Letrico() {
           <div className="flex justify-center items-center">
             <input
               id="chute"
-              className="p-1.5 rounded-l w-3/12 text-black border"
+              className="p-1.5 rounded-l w-3/12 text-black border-r-0"
               type="text"
               placeholder="Chute uma palavra"
             />

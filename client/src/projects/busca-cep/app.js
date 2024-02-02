@@ -9,7 +9,7 @@ const cepPattern = /^[0-9]{5}-?[0-9]{3}$/;
 let count = 0;
 
 // carregando as opções de estado e cidade
-document.addEventListener("DOMContentLoaded", () => {
+export const dataLoader = () => {
   // carregando estados
   fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
     .then((response) => response.json())
@@ -43,7 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
   });
-});
+};
+document.addEventListener("DOMContentLoaded", dataLoader);
 
 // para adicionar automaticamente os valores de endereço aos inputs de acordo com o cep inserido
 cep.addEventListener("input", (e) => {

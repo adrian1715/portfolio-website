@@ -8,34 +8,34 @@
 
 /* para o background-size não se alterar após o sorteio */
 @media (max-width: 1199px) {
-  body {
+  .body {
     background-size: 100% 1505px;
   }
 }
 
 @media (max-width: 991px) {
   /* medium */
-  body {
+  .body {
     height: 100%;
     background-size: 100% 2242px;
   }
 }
 @media (max-width: 767px) {
   /* small */
-  body {
+  .body {
     background-size: 100% 2603px;
   }
-  #ver-grupos {
+  .ver-grupos {
     display: none;
   }
 }
 @media (max-width: 575px) {
   /* extra small */
-  body {
+  .body {
     background-size: 100% 3163px;
   }
 
-  #potes ul {
+  .potes ul {
     text-align: center;
   }
 }
@@ -49,25 +49,25 @@
   margin-bottom: 10px !important;
 }
 
-h1 {
+.h1 {
   text-align: center;
   padding-top: 10px !important;
 }
 
-p {
+.p {
   margin-bottom: 10px !important;
 }
 
-ul p {
+.ul .p {
   margin-bottom: 0 !important;
 }
 
-li span {
+.li .span {
   display: flex;
   align-items: center;
 }
 
-.pote li {
+.pote .li {
   display: flex;
   height: 25px;
   margin-top: 5px;
@@ -91,7 +91,7 @@ li span {
   margin: 10px 0 5px 0 !important;
 }
 
-#a1A {
+.a1A {
   margin-left: 0 !important;
 }
 
