@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { formatLinkPath } from "../utils/linkPathFormatter";
+import { formatLinkPath } from "../utils/formatLinkPath";
 
 export default function NavLinkDropdown({ link }) {
   return (

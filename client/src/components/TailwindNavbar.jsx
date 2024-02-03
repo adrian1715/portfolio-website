@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { formatLinkPath } from "../utils/linkPathFormatter";
+import { formatLinkPath } from "../utils/formatLinkPath";
 import ThemeToggler from "./ThemeToggler";
 
 // default navigation model for this component

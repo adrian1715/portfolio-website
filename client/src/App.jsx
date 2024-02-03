@@ -4,27 +4,26 @@ import RootElement from "./pages/RootElement";
 import Home from "./pages/Home";
 import People from "./pages/People";
 import NewPerson from "./pages/NewPerson";
+import NotFound from "./pages/NotFound";
 import Projects from "./pages/Projects";
 import Letrico from "./projects/letrico/Letrico";
-import NotFound from "./pages/NotFound";
-import Test from "./Test";
-import Teams from "./Teams";
 import Timer from "./projects/pomodoro-timer/Timer";
-import ManyProjects from "./pages/ManyProjects";
+import Test from "./Test";
+import Test2 from "./Test2";
 import Copa from "./projects/simulador-de-sorteio/copa-do-mundo-2022/Copa";
 import LibSul from "./projects/simulador-de-sorteio/libertadores-sulamericana-2022/LibSul";
 import BuscaCEP from "./projects/busca-cep/BuscaCEP";
+import ShowProjects from "./pages/ShowProjects";
 
 // dropdown items
-const projects = [
-  ["Simulators", "Libertadores/Sul-Americana 2022", "Copa do Mundo 2022"],
-  ["Letrico"],
-  ["Busca CEP"],
-  ["Web Quiz"],
-  ["Desempregados"],
-  ["Pomodoro Timer"],
-  ["Recriando Sites", "Disney Plus", "Spotify"],
-].sort();
+// const projects = [
+//   ["Simulators", "Libertadores/Sul-Americana 2022", "Copa do Mundo 2022"],
+//   ["Letrico"],
+//   ["Busca CEP"],
+//   ["Pomodoro Timer"],
+//   ["Simple Projects", "Login Panel", "Score Keeper", "ToDo List"],
+//   ["Websites Clones", "Bauru Empregos", "Disney Plus", "Spotify"],
+// ].sort();
 // const articles = ["page1", "page2", "page3", "page4", "page5"];
 
 const router = createBrowserRouter([
@@ -41,39 +40,51 @@ const router = createBrowserRouter([
         navLink: true,
         children: [{ path: "new", element: <NewPerson /> }],
       },
-      { path: "/teams", element: <Teams />, navLink: true },
       {
         path: "/projects",
         element: <Projects />,
         navLink: true,
-        type: "dropwdown",
-        items: projects,
+        // items: projects,
+        children: [
+          { path: "letrico", element: <Letrico /> },
+          { path: "pomodoro-timer", element: <Timer /> },
+          {
+            path: "simulators",
+            element: <ShowProjects />,
+            navLink: true,
+            children: [
+              { path: "copa-do-mundo-2022", element: <Test /> },
+              { path: "libertadores-sulamericana-2022", element: <Test2 /> },
+            ],
+          },
+          {
+            path: "simple-projects",
+            element: <ShowProjects />,
+            children: [
+              { path: "login-panel" },
+              { path: "score-keeper" },
+              { path: "todo-list" },
+            ],
+          },
+          {
+            path: "website-clones",
+            element: <ShowProjects />,
+            children: [
+              { path: "disney-plus" },
+              { path: "spotify" },
+              { path: "bauru-empregos" },
+            ],
+          },
+          { path: "busca-cep", element: <BuscaCEP /> },
+        ],
       },
-      { path: "/projects/letrico", element: <Letrico /> },
-      { path: "/projects/pomodoro-timer", element: <Timer /> },
-
-      {
-        path: "/projects/simulators",
-        element: <ManyProjects />,
-        items: projects[0],
-      },
-      {
-        path: "/projects/simulators/copa-do-mundo-2022",
-        element: <Copa />,
-      },
-      {
-        path: "/projects/simulators/libertadores-sul-americana-2022",
-        element: <LibSul />,
-      },
-
-      { path: "/projects/busca-cep", element: <BuscaCEP /> },
-
       { path: "/contact", element: <Test />, navLink: true },
     ],
   },
 ]);
 
 export const links = router.routes[0].children;
+console.log(links);
 
 export const navLinks = router.routes[0].children.filter(
   (link) => link.navLink === true

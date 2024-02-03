@@ -13,7 +13,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* html default styles */
+/* HTML ELEMENTS STYLES */
 
 h1 {
   display: block;
@@ -76,13 +76,11 @@ select {
   border-radius: 1px;
 }
 
-/* extra html elements styles */
-
 input:disabled {
   cursor: not-allowed;
 }
 
-/* extra classes */
+/* EXTRA CLASSES */
 
 .invalid {
   border: 1px solid #b40e0e !important;
@@ -137,7 +135,7 @@ input:disabled {
   text-decoration: underline;
 }
 
-/* dark theme */
+/* DARK THEME */
 
 :is(:where(.dark)) body {
   --tw-bg-opacity: 1;

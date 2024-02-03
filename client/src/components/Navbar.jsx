@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { Fragment } from "react";
 import NavLinkDropdown from "./NavLinkDropdown";
-import { formatLinkPath } from "../utils/linkPathFormatter";
+import { formatLinkPath } from "../utils/formatLinkPath";
 
 export default function Navbar({ links }) {
   return (
