@@ -99,7 +99,7 @@ export function submitHandler(e) {
         // para 'marcar' a próxima tentativa
         document
           .querySelector(`#second${letras[i]}`)
-          .classList.add("btn", "btn-light");
+          .classList.add("btn", "btn-light", "border-dark");
       }
 
       // LÓGICA PARA A VERIFICAÇÃO DAS LETRAS INSERIDAS
@@ -127,7 +127,7 @@ export function submitHandler(e) {
 
         document
           .querySelector(`#third${letras[i]}`)
-          .classList.add("btn", "btn-light");
+          .classList.add("btn", "btn-light", "border-dark");
       }
 
       // LÓGICA PARA A VERIFICAÇÃO DAS LETRAS INSERIDAS
@@ -155,7 +155,7 @@ export function submitHandler(e) {
 
         document
           .querySelector(`#fourth${letras[i]}`)
-          .classList.add("btn", "btn-light");
+          .classList.add("btn", "btn-light", "border-dark");
       }
 
       // LÓGICA PARA A VERIFICAÇÃO DAS LETRAS INSERIDAS
@@ -182,7 +182,7 @@ export function submitHandler(e) {
 
         document
           .querySelector(`#fifth${letras[i]}`)
-          .classList.add("btn", "btn-light");
+          .classList.add("btn", "btn-light", "border-dark");
       }
 
       // LÓGICA PARA A VERIFICAÇÃO DAS LETRAS INSERIDAS
@@ -210,7 +210,7 @@ export function submitHandler(e) {
 
         document
           .querySelector(`#sixth${letras[i]}`)
-          .classList.add("btn", "btn-light");
+          .classList.add("btn", "btn-light", "border-dark");
       }
 
       // LÓGICA PARA A VERIFICAÇÃO DAS LETRAS INSERIDAS

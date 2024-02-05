@@ -14,17 +14,7 @@ import Copa from "./projects/simulador-de-sorteio/copa-do-mundo-2022/Copa";
 import LibSul from "./projects/simulador-de-sorteio/libertadores-sulamericana-2022/LibSul";
 import BuscaCEP from "./projects/busca-cep/BuscaCEP";
 import ShowProjects from "./pages/ShowProjects";
-
-// dropdown items
-// const projects = [
-//   ["Simulators", "Libertadores/Sul-Americana 2022", "Copa do Mundo 2022"],
-//   ["Letrico"],
-//   ["Busca CEP"],
-//   ["Pomodoro Timer"],
-//   ["Simple Projects", "Login Panel", "Score Keeper", "ToDo List"],
-//   ["Websites Clones", "Bauru Empregos", "Disney Plus", "Spotify"],
-// ].sort();
-// const articles = ["page1", "page2", "page3", "page4", "page5"];
+import { projects } from "./pages/Projects";
 
 const router = createBrowserRouter([
   {
@@ -44,7 +34,8 @@ const router = createBrowserRouter([
         path: "/projects",
         element: <Projects />,
         navLink: true,
-        // items: projects,
+        type: "dropdown",
+        items: projects,
         children: [
           { path: "letrico", element: <Letrico /> },
           { path: "pomodoro-timer", element: <Timer /> },
@@ -84,7 +75,6 @@ const router = createBrowserRouter([
 ]);
 
 export const links = router.routes[0].children;
-console.log(links);
 
 export const navLinks = router.routes[0].children.filter(
   (link) => link.navLink === true

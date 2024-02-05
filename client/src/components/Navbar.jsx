@@ -2,13 +2,14 @@ import { Link, NavLink } from "react-router-dom";
 import { Fragment } from "react";
 import NavLinkDropdown from "./NavLinkDropdown";
 import { formatLinkPath } from "../utils/formatLinkPath";
+import ThemeToggler from "./ThemeToggler";
 
 export default function Navbar({ links }) {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          Navbar
+          Portfolio Website
         </Link>
         <button
           className="navbar-toggler"
@@ -27,7 +28,7 @@ export default function Navbar({ links }) {
               <Fragment key={index}>
                 {link.type ? (
                   // if there's a dropdown
-                  <NavLinkDropdown link={link} />
+                  <NavLinkDropdown link={link} projects={link.projects} />
                 ) : (
                   // simple links (no dropdown)
                   <li key={index} className="nav-item">
@@ -43,6 +44,7 @@ export default function Navbar({ links }) {
                 )}
               </Fragment>
             ))}
+            <ThemeToggler />
           </ul>
           <form className="d-flex" role="search">
             <div className="input-group">

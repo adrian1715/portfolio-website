@@ -80,7 +80,7 @@ export default function BuscaCEP() {
                 Estado
                 <select
                   id="estados"
-                  className="form-control"
+                  className="form-select"
                   name="estados"
                   required
                 >
@@ -93,7 +93,7 @@ export default function BuscaCEP() {
                 Cidade
                 <select
                   id="cidade"
-                  className="form-control"
+                  className="form-select"
                   name="cidade"
                   required
                 >
@@ -108,7 +108,7 @@ export default function BuscaCEP() {
               type="submit"
               value="submit"
               id="btn-cadastrar"
-              className="btn btn-primary mr-2"
+              className="btn btn-primary mt-3"
             >
               Cadastrar endereço
             </button>
@@ -132,7 +132,7 @@ export default function BuscaCEP() {
         <div className="card">
           <div className="card-header d-flex aling-items">
             <h2>Registros</h2>
-            <button id="btn-consultar" className="btn btn-success ml-2">
+            <button id="btn-consultar" className="btn btn-success ms-2">
               Consultar
             </button>
           </div>

@@ -6,10 +6,10 @@ import { toLinkFormatter } from "../utils/toLinkFormatter";
 import { isCurrentPage } from "../utils/isCurrentPage";
 
 export default function ShowProjects() {
-  // const pathname = useLocation().pathname.endsWith("/")
-  //   ? useLocation().pathname.substring(0, useLocation().pathname.length - 1)
-  //   : useLocation().pathname;
-  const { pathname } = useLocation();
+  const pathname = useLocation().pathname.endsWith("/")
+    ? useLocation().pathname.substring(0, useLocation().pathname.length - 1)
+    : useLocation().pathname;
+  // const { pathname } = useLocation();
 
   const matchingRoutes = links
     .filter((link) => link.path === "/projects")[0]
@@ -45,9 +45,9 @@ export default function ShowProjects() {
         {projects.length > 0 ? (
           projects.map((proj, i) => (
             <li key={i}>
-              <Link to={proj.path} className="link text-lg">
+              <a href={`${pathname}/${proj.path}`} className="link text-lg">
                 {formatLinkPath(`/${proj.path}`)}
-              </Link>
+              </a>
             </li>
           ))
         ) : (

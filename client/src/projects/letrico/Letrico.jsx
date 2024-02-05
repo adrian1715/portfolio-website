@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 
 export default function Letrico() {
   const [submitHandler, setSubmitHandler] = useState();
@@ -41,16 +40,15 @@ export default function Letrico() {
             <div
               key={count}
               id={`${count}-word`}
-              className="flex justify-center mb-3"
+              className="d-flex justify-content-center mb-3"
             >
               {ids.letters.map((letter) => (
                 <button
                   key={letter}
                   id={`${count}${letter}`}
-                  className={`!font-bold !cursor-default btn ${
-                    count === "first" ? "btn-light" : ""
-                  } letter-wrapper rounded displaced me-2 border disabled:opacity-100`}
-                  disabled
+                  className={`cursor-default fw-bold btn rounded me-2 border ${
+                    count === "first" ? "btn-light border-dark" : ""
+                  } letter-wrapper`}
                 >
                   _
                 </button>
@@ -63,26 +61,27 @@ export default function Letrico() {
         <div id="message"></div>
         <br />
 
-        <form action="#" onSubmit={submitHandler}>
-          <div className="flex justify-center items-center">
-            <input
-              id="chute"
-              className="p-1.5 rounded-l w-3/12 text-black border-r-0"
-              type="text"
-              placeholder="Chute uma palavra"
-            />
-            <button
-              id="chutar"
-              className={`btn bg-gray-300 hover:bg-gray-200 disabled:hover:bg-gray-300 !rounded-l-none !text-black disabled:cursor-not-allowed`}
-              type="submit"
-            >
-              Chutar
-            </button>
-          </div>
-        </form>
+        <div
+          id="keyboard"
+          className="text-center d-flex justify-content-center"
+        >
+          <form action="#" onSubmit={submitHandler}>
+            <div className="input-group">
+              <input
+                id="chute"
+                className="form-control"
+                type="text"
+                placeholder="Chute uma palavra"
+              />
+              <button id="chutar" className="btn border" type="submit">
+                Chutar
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
 
-      <p className="fixed bottom-0">
+      <p className="position-fixed bottom-0">
         <b>NOTE: </b>This app was originally made in vanilla JavaScript and
         adapted to React here!
       </p>

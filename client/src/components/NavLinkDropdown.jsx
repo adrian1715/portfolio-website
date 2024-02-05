@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { formatLinkPath } from "../utils/formatLinkPath";
 
-export default function NavLinkDropdown({ link }) {
+export default function NavLinkDropdown({ link, projects }) {
   return (
     <Fragment key={link.id}>
       <li className="nav-item dropdown">
@@ -17,13 +17,23 @@ export default function NavLinkDropdown({ link }) {
           {link.items.map((item, index) =>
             index < 3 ? ( // limiting dropdown items up to 3
               <li key={index}>
-                {/* add some verification to check if the current link is /projects, changing <a> for a <Link> */}
-                <a
-                  className="dropdown-item"
-                  href={`${link.path}/${item.toLowerCase().replace(" ", "-")}`}
-                >
-                  {item}
-                </a>
+                {projects ? (
+                  <a
+                    className="dropdown-item"
+                    href={`${link.path}/${item[0]
+                      .toLowerCase()
+                      .replace(" ", "-")}`}
+                  >
+                    {item}
+                  </a>
+                ) : (
+                  <Link
+                    className="dropdown-item"
+                    to={`${link.path}/${item.toLowerCase().replace(" ", "-")}`}
+                  >
+                    {item}
+                  </Link>
+                )}
               </li>
             ) : index === 3 ? ( // show more
               <Fragment key={index}>

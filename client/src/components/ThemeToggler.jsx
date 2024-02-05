@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
-const ThemeToggler = ({ ...props }) => {
+const ThemeToggler = () => {
   useEffect(() => {
     if (!theme) {
       setTheme("light");
@@ -10,6 +9,7 @@ const ThemeToggler = ({ ...props }) => {
   }, []);
 
   const [theme, setTheme] = useState(localStorage.getItem("theme"));
+  const isDark = theme === "dark";
 
   const toggleTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -17,47 +17,33 @@ const ThemeToggler = ({ ...props }) => {
 
   useEffect(() => {
     localStorage.setItem("theme", theme);
-    document.documentElement.className = theme;
+    document.documentElement.setAttribute("data-bs-theme", theme);
   }, [theme]);
 
   return (
-    <div {...props}>
+    <div
+      className="form-check form-switch d-flex align-items-center m-2"
+      // onClick={toggleTheme}
+    >
       <input
-        type="radio"
-        id="switch"
-        name="switch"
-        className="hidden opacity-0 absolute"
-        checked={theme}
+        type="checkbox"
+        className="form-check-input me-1 hover-pointer"
+        role="switch"
+        id="flexSwitchCheckDefault"
+        checked={isDark}
         onChange={toggleTheme}
       />
       <label
-        htmlFor="switch"
-        className="flex items-center cursor-pointer select-none"
+        htmlFor="flexSwitchCheckDefault"
+        className="form-check-label me-1 hover-pointer"
       >
-        <div
-          className={`w-10 h-4 flex items-center justify-between p-1 me-2 transition duration-300 ${
-            theme === "dark" ? "bg-blue-500" : "bg-gray-300"
-          } rounded-full`}
-        >
-          <div
-            className={`w-5 h-5 bg-white rounded-full transform transition-transform ${
-              theme === "dark" ? "translate-x-full" : "-translate-x-1"
-            }`}
-          ></div>
-        </div>
-        <div
-          className={`w-14 flex items-center ${
-            theme === "dark" ? "text-blue-500" : "text-gray-600"
-          }`}
-        >
-          <span>{theme}</span>
-          {theme === "light" ? (
-            <SunIcon className="ms-0.5 max-w-6" />
-          ) : (
-            <MoonIcon className="ms-0.5 max-w-5" />
-          )}
-        </div>
+        {theme}
       </label>
+      {isDark ? (
+        <i className="bi bi-moon"></i>
+      ) : (
+        <i className="bi bi-brightness-high"></i>
+      )}
     </div>
   );
 };

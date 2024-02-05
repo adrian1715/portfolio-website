@@ -7,6 +7,15 @@ import { useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import ShowProjects from "./ShowProjects";
 
+export const projects = [
+  ["Simulators", "Libertadores/Sul-Americana 2022", "Copa do Mundo 2022"],
+  ["Letrico"],
+  ["Busca CEP"],
+  ["Pomodoro Timer"],
+  ["Simple Projects", "Login Panel", "Score Keeper", "ToDo List"],
+  ["Website Clones", "Bauru Empregos", "Disney Plus", "Spotify"],
+].sort();
+
 export default function Projects() {
   const { pathname } = useLocation();
 
@@ -21,21 +30,11 @@ export default function Projects() {
       return link.path;
     });
 
-  const projects = [
-    ["Simulators", "Libertadores/Sul-Americana 2022", "Copa do Mundo 2022"],
-    ["Letrico"],
-    ["Busca CEP"],
-    ["Pomodoro Timer"],
-    ["Simple Projects", "Login Panel", "Score Keeper", "ToDo List"],
-    ["Website Clones", "Bauru Empregos", "Disney Plus", "Spotify"],
-  ].sort();
-
   if (isCurrentPage(pathname, projectUrls)) return <Outlet />;
 
   return (
     <>
       <h1>Projects</h1>
-      {/* {pathname === "/projects" ? <AllProjects /> : <ShowProjects />} */}
       {/* {pathname === "/projects" ? ( */}
       <ul>
         {projects.length > 0 ? (
