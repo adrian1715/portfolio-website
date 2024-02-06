@@ -5,6 +5,7 @@ import Pote from "../components/Pote";
 import Group from "../components/Group";
 import libertadoresLogo from "../assets/libertadores/libertadores-logo.png";
 import sulamericanaLogo from "../assets/sulamericana/sulamericana-logo.png";
+import ProjectsNote from "../../../components/ProjectsNote";
 
 export default function LibSul() {
   async function imports() {
@@ -245,6 +246,7 @@ export default function LibSul() {
           </a>
         </div>
       </div>
+      <ProjectsNote />
     </>
   );
 }

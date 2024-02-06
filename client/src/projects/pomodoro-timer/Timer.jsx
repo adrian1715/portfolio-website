@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Timer.module.css";
+import ProjectsNote from "../../components/ProjectsNote";
 
 export default function Timer() {
   async function imports() {
@@ -52,6 +53,7 @@ export default function Timer() {
       <h2>
         Pomodoros: <span id="pomodoros">0</span>
       </h2>
+      <ProjectsNote />
 
       {ReactDOM.createPortal(
         <>

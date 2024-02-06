@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ProjectsNote from "../../components/ProjectsNote";
 
 export default function Letrico() {
   const [submitHandler, setSubmitHandler] = useState();
@@ -81,10 +82,7 @@ export default function Letrico() {
         </div>
       </div>
 
-      <p className="position-fixed bottom-0">
-        <b>NOTE: </b>This app was originally made in vanilla JavaScript and
-        adapted to React here!
-      </p>
+      <ProjectsNote />
     </>
   );
 }

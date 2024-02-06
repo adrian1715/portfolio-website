@@ -3,6 +3,7 @@ import styles from "./Copa.module.css";
 import Head from "react-helmet";
 import Pote from "../components/Pote";
 import Group from "../components/Group";
+import ProjectsNote from "../../../components/ProjectsNote";
 
 export default function Copa() {
   async function imports() {
@@ -143,6 +144,8 @@ export default function Copa() {
           <i className="bi bi-arrow-up ms-1"></i>
         </a>
       </div>
+
+      <ProjectsNote />
     </>
   );
 }

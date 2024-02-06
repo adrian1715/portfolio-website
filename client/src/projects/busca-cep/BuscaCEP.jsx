@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
+import ProjectsNote from "../../components/ProjectsNote";
 
 // import { dataLoader } from "./app";
 
@@ -141,6 +142,7 @@ export default function BuscaCEP() {
           </div>
         </div>
       </div>
+      <ProjectsNote />
       {/* {ReactDOM.createPortal(
         <script src="../src/projects/busca-cep/app.js"></script>,
         document.getElementById("vanilla-scripts")
