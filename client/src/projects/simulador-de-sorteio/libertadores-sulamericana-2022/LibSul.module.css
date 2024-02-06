@@ -1,7 +1,3 @@
-.body {
-  color: white !important;
-}
-
 .h1 {
   text-align: center;
   padding-top: 10px !important;
@@ -11,31 +7,33 @@
   margin-bottom: 10px !important;
 }
 
-.libertadores {
-  background-image: url("https://resources-us.yinzcam.com/csf/shared/bg-1.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 1016px; /* horizontal vertical */
-  height: auto 100vh;
-  padding-bottom: 8px;
+.body {
+  background-image: url("https://resources-us.yinzcam.com/csf/shared/bg-1.jpg"),
+    url("../assets/sulamericana/bg-1.jpg");
+  background-position: top, bottom;
+  background-repeat: no-repeat, repeat;
+  background-size: 110%;
+  /* height: 110%; */
+  padding-bottom: 1rem;
 }
 /* para o background-size não se alterar após o sorteio */
 @media (max-width: 991px) {
-  .libertadores {
+  .body {
     background-size: 100% 1482px;
   }
 }
 @media (max-width: 767px) {
-  .libertadores {
+  .body {
     background-size: 100% 1687px;
   }
 }
 @media (max-width: 480px) {
-  .libertadores {
+  .body {
     background-size: 100% 2353px;
   }
 }
 @media (max-width: 400px) {
-  .libertadores {
+  .body {
     background-size: 100% 3184px;
   }
 }
@@ -50,6 +48,10 @@
 .li .span {
   display: flex;
   align-items: center;
+}
+
+.pote {
+  margin-left: 0 !important;
 }
 
 .pote .li {
@@ -73,19 +75,19 @@
   padding: 8px !important;
 }
 
-.transição {
-  background-image: url("https://http2.mlstatic.com/D_NQ_NP_655940-MLB42150654701_062020-O.jpg");
+.transicao {
+  background-color: black;
   background-position: 100%;
   height: 21vh;
 }
 
-.sul-americana {
-  background-image: url("../../../../images/Simulador\ de\ Sorteio\ -\ Times/bg-1.jpg");
+/* .sul-americana {
+  background-image: ;
   background-repeat: no-repeat;
   background-size: 100% 1090px;
   height: auto 100vh !important;
   padding: 3px 0 8px 0 !important;
-}
+} */
 /* para o background-size não se alterar após o sorteio */
 @media (max-width: 991px) {
   .sul-americana {

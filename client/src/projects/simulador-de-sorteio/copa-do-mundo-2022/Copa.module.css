@@ -2,7 +2,7 @@
   color: white !important;
   background-image: url("https://i.pinimg.com/originals/6f/71/4f/6f714f9e9b3eab30ccec71f3b888ca28.png");
   background-repeat: no-repeat;
-  background-size: 100% 1457px; /* horizontal vertical */
+  background-size: 100%; /* horizontal vertical */
   padding-bottom: 14px;
 }
 
@@ -67,7 +67,7 @@
   align-items: center;
 }
 
-.pote .li {
+.pote li {
   display: flex;
   height: 25px;
   margin-top: 5px;
@@ -91,7 +91,7 @@
   margin: 10px 0 5px 0 !important;
 }
 
-.a1A {
+.pote {
   margin-left: 0 !important;
 }
 

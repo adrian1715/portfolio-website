@@ -35,6 +35,7 @@ const router = createBrowserRouter([
         element: <Projects />,
         navLink: true,
         type: "dropdown",
+        projects: true,
         items: projects,
         children: [
           { path: "letrico", element: <Letrico /> },
@@ -44,8 +45,8 @@ const router = createBrowserRouter([
             element: <ShowProjects />,
             navLink: true,
             children: [
-              { path: "copa-do-mundo-2022", element: <Test /> },
-              { path: "libertadores-sulamericana-2022", element: <Test2 /> },
+              { path: "copa-do-mundo-2022", element: <Copa /> },
+              { path: "libertadores-sulamericana-2022", element: <LibSul /> },
             ],
           },
           {
