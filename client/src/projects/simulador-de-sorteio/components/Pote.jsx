@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "../copa-do-mundo-2022/Copa.module.css";
+import copaStyles from "../copa-do-mundo-2022/Copa.module.css";
+import libSulStyles from "../libertadores-sulamericana-2022/LibSul.module.css";
 
 export default function Pote({ teams, pote, copa, ...props }) {
   const groups = ["A", "B", "C", "D", "E", "F", "G", "H"];
@@ -8,9 +9,11 @@ export default function Pote({ teams, pote, copa, ...props }) {
     <ul
       {...props}
       id={`pote-${pote}`}
-      className={`${styles.pote} justify-content-center text-lg-center col-8 col-sm-6 col-md-4 col-lg-3`}
+      className={`${
+        copa === "mundial" ? copaStyles.pote : libSulStyles.pote
+      } list-inline text-lg-center col-8 col-sm-6 col-md-4 col-lg-3`}
     >
-      <p>
+      <p className={`${copa !== "mundial" ? libSulStyles.p : copaStyles.p}`}>
         <b>Pote {pote}</b>
       </p>
       {teams.map((team, i) => (
@@ -19,7 +22,9 @@ export default function Pote({ teams, pote, copa, ...props }) {
           id={`${copa === "sulamericana" ? "sula" : ""}${
             pote === 1 ? "a1" : pote === 2 ? "b2" : pote === 3 ? "c3" : "d4"
           }${groups[i]}`}
-          className={""}
+          className={`${pote === 1 && groups[i] === "A" ? "a1A" : ""} ${
+            copa !== "mundial" ? libSulStyles.li : ""
+          }`}
         >
           <img
             src={`/src/projects/simulador-de-sorteio/assets/${copa}/${
@@ -34,17 +39,17 @@ export default function Pote({ teams, pote, copa, ...props }) {
                 : team
             }.png`}
             alt={team}
-            className={styles.escudos}
+            className={`${
+              copa === "mundial" ? copaStyles.escudos : libSulStyles.escudos
+            }${team === "Switzerland" ? ` ${copaStyles.suica}` : ""}`}
           />
           <span>
             {team}
-            <b className="ms-1 d-block d-md-inline-block">
-              {team === "Qatar"
-                ? "(Grupo A)"
-                : team === "Palmeiras"
-                ? "(Grupo A)"
-                : ""}
-            </b>
+            {team === "Qatar" || team === "Palmeiras" ? (
+              <b className="ms-1 d-block d-md-inline-block">(Grupo A)</b>
+            ) : (
+              ""
+            )}
           </span>
         </li>
       ))}

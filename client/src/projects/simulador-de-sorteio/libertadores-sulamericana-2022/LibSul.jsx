@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import ReactDOM from "react-dom";
 import styles from "./LibSul.module.css";
 import Head from "react-helmet";
 import Pote from "../components/Pote";
@@ -18,10 +19,10 @@ export default function LibSul() {
 
   useEffect(() => {
     imports();
-    document.getElementById("root").classList.add(styles.body);
+    document.querySelector("#container").style.display = "none";
 
     return () => {
-      document.getElementById("root").classList.remove(styles.body);
+      document.querySelector("#container").style.display = "block";
     };
   }, []);
 
@@ -115,138 +116,150 @@ export default function LibSul() {
     <>
       <Head>
         <title>Simulador de sorteio</title>
-        <link
-          rel="icon"
-          href="../../../../images/Simulador de Sorteio - Times/libertadores logo.png"
-        />
+        <link rel="icon" href="../assets/libertadores/libertadores-logo" />
       </Head>
 
-      <div id="libertadores" className="pb-3">
-        <h1 className="text-center">Simulador de Sorteio</h1>
-        <img
-          src={libertadoresLogo}
-          alt="libertadores logo"
-          className="img-fluid d-inline-block"
-          style={{ maxHeight: "40px" }}
-        />
-        <h2 className="d-inline-block mt-4 mb-3">Libertadores</h2>
-        <h3>Potes</h3>
-        <div
-          id="potes"
-          className="row justify-content-center justify-content-md-between"
-        >
-          {potesLibertadores.map((teams, i) => (
-            <Pote key={i} teams={teams} pote={i + 1} copa="libertadores" />
-          ))}
-        </div>
-
-        <br />
-
-        <div className="row">
-          <span className="me-2 d-flex align-items-center">
-            Escolha uma opção:
-          </span>
-          <button
-            id="time-liberta"
-            className="btn btn-outline-primary col-2 me-2"
-          >
-            Sortear time
-          </button>
-          <button
-            id="tudo-liberta"
-            className="btn btn-outline-success col-2 me-2"
-          >
-            Sortear tudo
-          </button>
-          <button id="limpar" className="btn btn-outline-danger col-2 me-2">
-            Limpar
-          </button>
-        </div>
-
-        <br />
-        <br />
-
-        <h3>Grupos</h3>
-        <div id="grupos">
-          <div className="row">
-            {groups.map((group) => (
-              <Group key={group} group={group} />
-            ))}
+      {ReactDOM.createPortal(
+        <div id="simulador-libertadores-sulamericana" className={styles.body}>
+          <div id="libertadores" className={styles.libertadores}>
+            <h1 className={styles.h1}>Simulador de Sorteio</h1>
+            <div className="container">
+              <img
+                src={libertadoresLogo}
+                alt="libertadores logo"
+                className="img-fluid d-inline-block"
+                style={{ maxHeight: "40px" }}
+              />
+              <h2 className="d-inline-block mt-4 mb-3">Libertadores</h2>
+              <h3>Potes</h3>
+              <div
+                id="potes"
+                className="row justify-content-center justify-content-md-between"
+              >
+                {potesLibertadores.map((teams, i) => (
+                  <Pote
+                    key={i}
+                    teams={teams}
+                    pote={i + 1}
+                    copa="libertadores"
+                  />
+                ))}
+              </div>
+              <br />
+              <div>
+                <span className="me-2">Escolha uma opção:</span>
+                <button
+                  id="time-liberta"
+                  className="btn btn-outline-primary col-2 me-2"
+                >
+                  Sortear time
+                </button>
+                <button
+                  id="tudo-liberta"
+                  className="btn btn-outline-success col-2 me-2"
+                >
+                  Sortear tudo
+                </button>
+                <button
+                  id="limpar"
+                  className="btn btn-outline-danger col-2 me-2"
+                >
+                  Limpar
+                </button>
+              </div>
+              <br />
+              <br />
+              <h3>Grupos</h3>
+              <div id="grupos">
+                <div className="row">
+                  {groups.map((group) => (
+                    <Group key={group} group={group} />
+                  ))}
+                </div>
+              </div>
+              <br />
+              <a
+                href="#sul-americana"
+                className="badge bg-primary p-2 border text-decoration-none"
+              >
+                Sul-Americana
+              </a>
+            </div>
           </div>
-        </div>
 
-        <br />
+          <div className={styles.transicao}></div>
 
-        <a
-          href="#sul-americana"
-          className="badge bg-primary border text-decoration-none"
-        >
-          Sul-Americana
-        </a>
-      </div>
-
-      <div className={styles.transicao}></div>
-
-      <div id="sul-americana">
-        <img
-          src={sulamericanaLogo}
-          alt="sul-americana logo"
-          className="img-fluid d-inline-block pb-2"
-          style={{ maxHeight: "40px" }}
-        />
-        <h2 id="sula-logo" className="d-inline-block my-3">
-          Sul-Americana
-        </h2>
-        <h3>Potes</h3>
-        <div
-          id="potes"
-          className="row justify-content-center justify-content-md-between"
-        >
-          {potesSulamericana.map((teams, i) => (
-            <Pote key={i} teams={teams} pote={i + 1} copa="sulamericana" />
-          ))}
-        </div>
-
-        <br />
-
-        <div className="row">
-          <span className="me-2 d-flex align-items-center">
-            Escolha uma opção:
-          </span>
-          <button id="time-sula" className="btn btn-outline-primary col-2 me-2">
-            Sortear time
-          </button>
-          <button id="tudo-sula" className="btn btn-outline-success col-2 me-2">
-            Sortear tudo
-          </button>
-          <button
-            id="limpar-sula"
-            className="btn btn-outline-danger col-2 me-2"
-          >
-            Limpar
-          </button>
-        </div>
-
-        <br />
-        <br />
-
-        <h3>Grupos</h3>
-        <div id="grupos">
-          <div className="row">
-            {groups.map((group) => (
-              <Group key={group} group={group} copa="sulamericana" />
-            ))}
+          <div id="sul-americana" className={styles.sulamericana}>
+            <h1 className={styles.h1}>Simulador de Sorteio</h1>
+            <div className="container">
+              <img
+                src={sulamericanaLogo}
+                alt="sul-americana logo"
+                className="img-fluid d-inline-block pb-2"
+                style={{ maxHeight: "40px" }}
+              />
+              <h2 id="sula-logo" className="d-inline-block my-3">
+                Sul-Americana
+              </h2>
+              <h3>Potes</h3>
+              <div
+                id="potes"
+                className="row justify-content-center justify-content-md-between"
+              >
+                {potesSulamericana.map((teams, i) => (
+                  <Pote
+                    key={i}
+                    teams={teams}
+                    pote={i + 1}
+                    copa="sulamericana"
+                  />
+                ))}
+              </div>
+              <br />
+              <div>
+                <span className="me-2">Escolha uma opção:</span>
+                <button
+                  id="time-sula"
+                  className="btn btn-outline-primary col-2 me-2"
+                >
+                  Sortear time
+                </button>
+                <button
+                  id="tudo-sula"
+                  className="btn btn-outline-success col-2 me-2"
+                >
+                  Sortear tudo
+                </button>
+                <button
+                  id="limpar-sula"
+                  className="btn btn-outline-danger col-2 me-2"
+                >
+                  Limpar
+                </button>
+              </div>
+              <br />
+              <br />
+              <h3>Grupos</h3>
+              <div id="grupos">
+                <div className="row">
+                  {groups.map((group) => (
+                    <Group key={group} group={group} copa="sulamericana" />
+                  ))}
+                </div>
+                <br />
+                <a
+                  href="#libertadores"
+                  className={`${styles.badge} badge bg-danger p-2 border text-decoration-none`}
+                >
+                  Libertadores
+                </a>
+              </div>
+            </div>
           </div>
-          <br />
-          <a
-            href="#libertadores"
-            className="badge bg-danger border text-decoration-none"
-          >
-            Libertadores
-          </a>
-        </div>
-      </div>
-      <ProjectsNote />
+          <ProjectsNote />
+        </div>,
+        document.querySelector("body")
+      )}
     </>
   );
 }

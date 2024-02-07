@@ -1,3 +1,7 @@
+.body {
+  color: white !important;
+}
+
 .h1 {
   text-align: center;
   padding-top: 10px !important;
@@ -7,36 +11,35 @@
   margin-bottom: 10px !important;
 }
 
-.body {
-  background-image: url("https://resources-us.yinzcam.com/csf/shared/bg-1.jpg"),
-    url("../assets/sulamericana/bg-1.jpg");
-  background-position: top, bottom;
-  background-repeat: no-repeat, repeat;
-  background-size: 110%;
-  /* height: 110%; */
+.libertadores {
+  background-image: url("https://resources-us.yinzcam.com/csf/shared/bg-1.jpg");
+  background-repeat: no-repeat;
+  height: 100%;
+  /* padding-bottom: 8px; */
   padding-bottom: 1rem;
 }
 /* para o background-size não se alterar após o sorteio */
 @media (max-width: 991px) {
-  .body {
-    background-size: 100% 1482px;
+  .libertadores {
+    background-size: 100% 1530px;
   }
 }
 @media (max-width: 767px) {
-  .body {
-    background-size: 100% 1687px;
+  .libertadores {
+    background-size: 100% 1730px;
   }
 }
 @media (max-width: 480px) {
-  .body {
-    background-size: 100% 2353px;
+  .libertadores {
+    background-size: 100% 2360px;
   }
 }
 @media (max-width: 400px) {
-  .body {
+  .libertadores {
     background-size: 100% 3184px;
   }
 }
+
 /* para manter os potes responsivos até nas menores medidas da tela */
 @media (min-width: 480px) {
   .pote {
@@ -45,16 +48,12 @@
   }
 }
 
-.li .span {
+.li span {
   display: flex;
   align-items: center;
 }
 
-.pote {
-  margin-left: 0 !important;
-}
-
-.pote .li {
+.pote li {
   display: flex;
   height: 25px;
   margin-top: 5px;
@@ -81,35 +80,30 @@
   height: 21vh;
 }
 
-/* .sul-americana {
-  background-image: ;
+.sulamericana {
+  background-image: url("../assets/sulamericana/bg-1.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 1090px;
-  height: auto 100vh !important;
-  padding: 3px 0 8px 0 !important;
-} */
+  /* padding: 3px 0 8px 0 !important; */
+  padding: 0.4rem 0 1rem 0 !important;
+}
 /* para o background-size não se alterar após o sorteio */
 @media (max-width: 991px) {
-  .sul-americana {
+  .sulamericana {
     background-size: 100% 1556px;
   }
 }
 @media (max-width: 767px) {
-  .sul-americana {
+  .sulamericana {
     background-size: 100% 1761px;
   }
 }
 @media (max-width: 480px) {
-  .sul-americana {
+  .sulamericana {
     background-size: 100% 2475px;
   }
 }
 @media (max-width: 400px) {
-  .sul-americana {
+  .sulamericana {
     background-size: 100% 3539px;
   }
-}
-
-.sula-logo {
-  margin-bottom: 0 !important;
 }

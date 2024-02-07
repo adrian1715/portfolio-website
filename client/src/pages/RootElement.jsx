@@ -7,7 +7,7 @@ export default function RootElement({ children }) {
   return (
     <>
       {navLinks && <Navbar links={navLinks} />}
-      <div className="container mt-4">
+      <div id="container" className="container mt-4">
         {children}
         <Outlet />
       </div>
