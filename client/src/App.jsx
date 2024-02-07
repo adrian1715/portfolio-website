@@ -15,6 +15,7 @@ import LibSul from "./projects/simulador-de-sorteio/libertadores-sulamericana-20
 import BuscaCEP from "./projects/busca-cep/BuscaCEP";
 import ShowProjects from "./pages/ShowProjects";
 import { projects } from "./pages/Projects";
+import DisneyPlus from "./projects/recriando-sites/disney-plus/DisneyPlus";
 
 const router = createBrowserRouter([
   {
@@ -62,7 +63,7 @@ const router = createBrowserRouter([
             path: "website-clones",
             element: <ShowProjects />,
             children: [
-              { path: "disney-plus" },
+              { path: "disney-plus", element: <DisneyPlus /> },
               { path: "spotify" },
               { path: "bauru-empregos" },
             ],
