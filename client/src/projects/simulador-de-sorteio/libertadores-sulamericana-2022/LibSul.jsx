@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./LibSul.module.css";
-import Head from "react-helmet";
+import Head, { Helmet } from "react-helmet";
 import Pote from "../components/Pote";
 import Group from "../components/Group";
 import libertadoresLogo from "../assets/libertadores/libertadores-logo.png";
@@ -20,6 +20,7 @@ export default function LibSul() {
   useEffect(() => {
     imports();
     document.querySelector("#container").style.display = "none";
+    document.querySelector("#vite-icon").remove();
 
     return () => {
       document.querySelector("#container").style.display = "block";
@@ -114,10 +115,14 @@ export default function LibSul() {
 
   return (
     <>
-      <Head>
+      <Helmet>
         <title>Simulador de sorteio</title>
-        <link rel="icon" href="../assets/libertadores/libertadores-logo" />
-      </Head>
+        <link
+          id="libertadores-icon"
+          rel="icon"
+          href="/src/projects/simulador-de-sorteio/assets/libertadores/libertadores-logo.png"
+        />
+      </Helmet>
 
       {ReactDOM.createPortal(
         <div id="simulador-libertadores-sulamericana" className={styles.body}>

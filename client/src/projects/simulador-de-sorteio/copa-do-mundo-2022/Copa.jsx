@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Copa.module.css";
-import Head from "react-helmet";
+import { Helmet } from "react-helmet";
+// import Head from "react-helmet";
 import Pote from "../components/Pote";
 import Group from "../components/Group";
 import ProjectsNote from "../../../components/ProjectsNote";
@@ -18,6 +19,7 @@ export default function Copa() {
   useEffect(() => {
     imports();
     document.querySelector("#container").style.display = "none";
+    document.querySelector("#vite-icon").remove();
 
     return () => {
       document.querySelector("#container").style.display = "block";
@@ -70,13 +72,15 @@ export default function Copa() {
 
   return (
     <>
-      <Head>
+      <Helmet>
         <title>Sorteador da Copa</title>
         <link
-          rel="icon"
+          id="world-cup-icon"
+          rel="shortcut icon"
           href="https://upload.wikimedia.org/wikipedia/pt/thumb/e/e3/2022_FIFA_World_Cup.svg/1200px-2022_FIFA_World_Cup.svg.png"
+          type="image/x-icon"
         />
-      </Head>
+      </Helmet>
 
       {ReactDOM.createPortal(
         <div id="simulador-da-copa" className={styles.body}>
