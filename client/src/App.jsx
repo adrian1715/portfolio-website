@@ -16,6 +16,7 @@ import BuscaCEP from "./projects/busca-cep/BuscaCEP";
 import ShowProjects from "./pages/ShowProjects";
 import { projects } from "./pages/Projects";
 import DisneyPlus from "./projects/recriando-sites/disney-plus/DisneyPlus";
+import Spotify from "./projects/recriando-sites/spotify/Spotify";
 
 const router = createBrowserRouter([
   {
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
             element: <ShowProjects />,
             children: [
               { path: "disney-plus", element: <DisneyPlus /> },
-              { path: "spotify" },
+              { path: "spotify", element: <Spotify /> },
               { path: "bauru-empregos" },
             ],
           },
