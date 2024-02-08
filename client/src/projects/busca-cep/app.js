@@ -6,7 +6,6 @@ const cidade = document.getElementById("cidade");
 const loadingIcon = document.getElementById("loading-icon");
 
 const cepPattern = /^[0-9]{5}-?[0-9]{3}$/;
-let count = 0;
 
 // carregando as opções de estado e cidade
 export const dataLoader = () => {
@@ -90,17 +89,17 @@ btnCadastrar.addEventListener("click", () => {
 });
 
 // registrando os valores enviados
-form.addEventListener("submit", (e) => {
+// form.addEventListener("submit", submitHandler);
+
+export function submitHandler(e) {
   e.preventDefault();
 
   if (document.getElementById("msg")) {
     document.getElementById("msg").remove();
   }
 
-  const formData = new FormData(form);
+  const formData = new FormData(e.target);
   const data = [...formData.entries()];
-
-  console.log(data);
 
   // adicionando endereço
   const cep = data[0][1];
@@ -138,7 +137,7 @@ form.addEventListener("submit", (e) => {
     painelResultados.appendChild(p);
 
     const btnExcluir = document.createElement("button");
-    btnExcluir.classList.add("delete-btn", "btn", "btn-danger", "ml-2", "mb-1");
+    btnExcluir.classList.add("delete-btn", "btn", "btn-danger", "ms-2", "mb-1");
     btnExcluir.style.padding = "2px 8px";
     btnExcluir.innerText = "X";
     btnExcluir.style.display = "none";
@@ -169,7 +168,8 @@ form.addEventListener("submit", (e) => {
     const msg = document.createElement("div");
     msg.setAttribute("id", "msg");
     msg.classList.add("alert", "alert-warning", "mt-4");
-    msg.innerText = "CEP inválido!";
+    msg.innerText =
+      "CEP inválido! Verifique se o mesmo existe e ainda não foi registrado!";
     document.querySelector(".card-body").appendChild(msg);
   }
 
@@ -180,7 +180,7 @@ form.addEventListener("submit", (e) => {
   document.getElementById("complemento").value = "";
   document.getElementById("cidade").value = "Cidade";
   estado.value = "Estado";
-});
+}
 
 // exibindo os registros ao carregar a página
 const btnConsulta = document.getElementById("btn-consultar");
@@ -190,7 +190,7 @@ const addresses = Object.keys(localStorage)
   .map((key) => localStorage.getItem(key))
   .sort();
 
-for (add of addresses) {
+for (let add of addresses) {
   const p = document.createElement("p");
   p.innerText = add;
   p.id = p.innerText.match(/^([^:]+)/)[1];
@@ -198,7 +198,7 @@ for (add of addresses) {
   painelResultados.appendChild(p);
 
   const btnExcluir = document.createElement("button");
-  btnExcluir.classList.add("delete-btn", "btn", "btn-danger", "ml-2", "mb-1");
+  btnExcluir.classList.add("delete-btn", "btn", "btn-danger", "ms-2", "mb-1");
   btnExcluir.style.padding = "2px 8px";
   btnExcluir.innerText = "X";
   btnExcluir.style.display = "none";
@@ -207,23 +207,37 @@ for (add of addresses) {
 
 // exibindo os registros ao clicar em consultar
 btnConsulta.addEventListener("click", () => {
-  for (p of painelResultados.children) {
-    p.style.display = "block";
+  const noRegisters = document.getElementById("warning-msg");
 
-    const btnExcluir = p.children[0];
-    btnExcluir.style.display = "inline-block";
+  if (painelResultados.children.length <= 0 && !noRegisters) {
+    const p = document.createElement("p");
+    p.id = "warning-msg";
+    p.innerText = "Sem registros disponíveis!";
+    document.getElementById("bq-resultado").appendChild(p);
+  } else if (
+    (painelResultados.children.length !== 1 && noRegisters) ||
+    !noRegisters
+  ) {
+    // quando há registros
+    if (noRegisters) document.getElementById("warning-msg").remove();
+    for (let p of painelResultados.children) {
+      p.style.display = "block";
 
-    // botão de exclusão de registro
-    btnExcluir.addEventListener("click", () => {
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        const storedCep = localStorage.getItem(key).match(/^([^:]+)/)[1];
+      const btnExcluir = p.children[0];
+      btnExcluir.style.display = "inline-block";
 
-        if (storedCep == btnExcluir.parentElement.id) {
-          localStorage.removeItem(key);
-          btnExcluir.parentElement.remove();
+      // botão de exclusão de registro
+      btnExcluir.addEventListener("click", () => {
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          const storedCep = localStorage.getItem(key).match(/^([^:]+)/)[1];
+
+          if (storedCep == btnExcluir.parentElement.id) {
+            localStorage.removeItem(key);
+            btnExcluir.parentElement.remove();
+          }
         }
-      }
-    });
+      });
+    }
   }
 });
