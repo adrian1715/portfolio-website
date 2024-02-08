@@ -21,7 +21,7 @@ export default function ToDoList() {
         <title>ToDo List</title>
       </Helmet>
 
-      <div style={{ marginLeft: "20px" }}>
+      <div id="todo-list" style={{ marginLeft: "20px" }}>
         <h1>ToDo List</h1>
         <ul>
           <li>"new" - Add a ToDo</li>
@@ -30,6 +30,7 @@ export default function ToDoList() {
           <li>"quit" - Quit App</li>
         </ul>
       </div>
+
       <ProjectsNote />
     </>
   );

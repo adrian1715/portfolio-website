@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Timer.module.css";
 import ProjectsNote from "../../components/ProjectsNote";
+import { Helmet } from "react-helmet";
 
 export default function Timer() {
   async function imports() {
@@ -19,40 +20,51 @@ export default function Timer() {
 
   return (
     <>
-      <h1 className="display-1">
-        Pomodoro Timer
-        <i className="bi bi-clock ms-3"></i>
-      </h1>
-      <br />
-      <div id="buttons" className="d-flex justify-content-between">
-        <button
-          id="study-timer-btn"
-          className="btn btn-primary border timer-btn"
-        >
-          Start Studying
-        </button>
-        <div className="mid-btns">
-          <button id="pause-btn" className="btn btn-dark border me-1" disabled>
-            Pause
-          </button>
+      <Helmet>
+        <title>Timer</title>
+      </Helmet>
+
+      <div id="pomodoro-timer">
+        <h1 className="display-1">
+          Pomodoro Timer
+          <i className="bi bi-clock ms-3"></i>
+        </h1>
+        <br />
+        <div id="buttons" className="d-flex justify-content-between">
           <button
-            id="restart-btn"
-            className="btn btn-secondary border ms-1"
-            disabled
+            id="study-timer-btn"
+            className="btn btn-primary border timer-btn"
           >
-            Restart Timer
+            Start Studying
+          </button>
+          <div className="mid-btns">
+            <button
+              id="pause-btn"
+              className="btn btn-dark border me-1"
+              disabled
+            >
+              Pause
+            </button>
+            <button
+              id="restart-btn"
+              className="btn btn-secondary border ms-1"
+              disabled
+            >
+              Restart Timer
+            </button>
+          </div>
+          <button id="break-btn" className="btn btn-success border timer-btn">
+            Take a Break
           </button>
         </div>
-        <button id="break-btn" className="btn btn-success border timer-btn">
-          Take a Break
-        </button>
+        <div id="timer" className={styles.timer}>
+          00:00
+        </div>
+        <h2>
+          Pomodoros: <span id="pomodoros">0</span>
+        </h2>
       </div>
-      <div id="timer" className={styles.timer}>
-        00:00
-      </div>
-      <h2>
-        Pomodoros: <span id="pomodoros">0</span>
-      </h2>
+
       <ProjectsNote />
 
       {ReactDOM.createPortal(

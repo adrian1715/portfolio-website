@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProjectsNote from "../../components/ProjectsNote";
+import { Helmet } from "react-helmet";
 
 export default function Letrico() {
   const [submitHandler, setSubmitHandler] = useState();
@@ -25,7 +26,11 @@ export default function Letrico() {
 
   return (
     <>
-      <div className="text-center">
+      <Helmet>
+        <title>Letrico</title>
+      </Helmet>
+
+      <div id="letrico" className="text-center">
         <h1 className="text-center mb-0 app-name">
           {"LETRiCO".split("").map((letter, i) => (
             <span key={i} className={`let-${i + 1}`}>

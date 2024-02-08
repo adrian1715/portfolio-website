@@ -284,8 +284,9 @@ export default function Spotify() {
             </div>
           </div>
         </footer>
-        <ProjectsNote />
       </div>
+
+      <ProjectsNote />
     </>,
     document.querySelector("body")
   );
