@@ -17,6 +17,8 @@ import ShowProjects from "./pages/ShowProjects";
 import { projects } from "./pages/Projects";
 import DisneyPlus from "./projects/recriando-sites/disney-plus/DisneyPlus";
 import Spotify from "./projects/recriando-sites/spotify/Spotify";
+import ScoreKeeper from "./projects/simple-projects/score-keeper/ScoreKeeper";
+import ToDoList from "./projects/simple-projects/todo-list/ToDoList";
 
 const router = createBrowserRouter([
   {
@@ -56,8 +58,8 @@ const router = createBrowserRouter([
             element: <ShowProjects />,
             children: [
               { path: "login-panel" },
-              { path: "score-keeper" },
-              { path: "todo-list" },
+              { path: "score-keeper", element: <ScoreKeeper /> },
+              { path: "todo-list", element: <ToDoList /> },
             ],
           },
           {
