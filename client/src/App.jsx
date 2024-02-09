@@ -27,13 +27,15 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
-      { path: "/about-me", navLink: true },
-      {
-        path: "/people",
-        element: <People />,
-        navLink: true,
-        children: [{ path: "new", element: <NewPerson /> }],
-      },
+      { path: "/about", navLink: true },
+      { path: "/skills", navLink: true },
+      { path: "/contact", navLink: true },
+      // {
+      //   path: "/people",
+      //   element: <People />,
+      //   navLink: true,
+      //   children: [{ path: "new", element: <NewPerson /> }],
+      // },
       {
         path: "/projects",
         element: <Projects />,
@@ -74,7 +76,6 @@ const router = createBrowserRouter([
           { path: "busca-cep", element: <BuscaCEP /> },
         ],
       },
-      { path: "/contact", element: <Test />, navLink: true },
     ],
   },
 ]);

@@ -26,7 +26,7 @@ export default function Navbar({ links }) {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {links.map((link, index) => (
               <Fragment key={index}>
-                {link.type ? (
+                {link.type === "dropdown" ? (
                   // if there's a dropdown
                   <NavLinkDropdown link={link} projects={link.projects} />
                 ) : (

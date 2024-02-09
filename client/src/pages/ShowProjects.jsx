@@ -35,7 +35,7 @@ export default function ShowProjects() {
         .filter((project) => project.path === directories[2])[0]
         .children.map((project) => project.path);
 
-  console.log("Projects Urls", projectUrls);
+  // console.log("Projects Urls", projectUrls);
   if (isCurrentPage(pathname, projectUrls)) return <Outlet />;
 
   return (

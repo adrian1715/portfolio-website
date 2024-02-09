@@ -1,13 +1,17 @@
 import React, { Fragment } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { formatLinkPath } from "../utils/formatLinkPath";
 
 export default function NavLinkDropdown({ link, projects }) {
+  const { pathname } = useLocation();
+  const isActive = pathname === "/projects";
+
   return (
     <Fragment key={link.id}>
       <li className="nav-item dropdown">
         <NavLink
           className="nav-link dropdown-toggle"
+          style={{ fontWeight: isActive ? "bold" : "" }}
           role="button"
           data-bs-toggle="dropdown"
         >
