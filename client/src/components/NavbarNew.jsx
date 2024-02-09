@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { formatLinkPath } from "../utils/formatLinkPath";
-import ThemeToggler from "./ThemeToggler";
+import ThemeTogglerNew from "./ThemeTogglerNew";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 
 export default function NavbarNew({ links: navLinks }) {
@@ -110,7 +110,7 @@ export default function NavbarNew({ links: navLinks }) {
           )}
         </AnimatePresence>
 
-        {/* <ThemeToggler /> */}
+        {isShowingNavbar && <ThemeTogglerNew />}
       </nav>
     </header>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
@@ -6,6 +6,16 @@ import { navLinks } from "../App";
 import NavbarNew from "../components/NavbarNew";
 
 export default function RootElement({ children }) {
+  // to always use the selected theme
+  useEffect(() => {
+    if (!localStorage.getItem("theme")) {
+      localStorage.setItem("theme", "light");
+    }
+
+    const theme = localStorage.getItem("theme");
+    document.documentElement.setAttribute("data-bs-theme", theme);
+  }, []);
+
   return (
     <>
       <Helmet>
