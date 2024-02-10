@@ -38,7 +38,7 @@ export default function NavbarNew({ links: navLinks }) {
 
   return (
     <header
-      className={`header ${
+      className={`header sticky-top ${
         isShowingNavbar && isNavbarButtonClicked
           ? "border-bottom border-top-0 rounded"
           : ""
@@ -67,7 +67,7 @@ export default function NavbarNew({ links: navLinks }) {
               // ${isShowingNavbar ? "d-flex" : "d-none"}
               initial={
                 isNavbarButtonClicked
-                  ? { opacity: 0, height: 0, y: -120 }
+                  ? { opacity: 0, height: 0, y: -35 }
                   : false
               }
               animate={{
@@ -77,7 +77,7 @@ export default function NavbarNew({ links: navLinks }) {
               }}
               exit={
                 isNavbarButtonClicked
-                  ? { opacity: 0, height: 0, y: -120 }
+                  ? { opacity: 0, height: 0, y: -35 }
                   : false
               }
               transition={{ duration: 0.3 }}
@@ -86,22 +86,23 @@ export default function NavbarNew({ links: navLinks }) {
                 id="nav-links"
                 className="navbar-nav flex-grow-0 ms-lg-auto col-lg-auto"
               >
-                <div className="row text-center text-sm-start justify-content-center justify-content-lg-between">
+                <div className="row text-center text-sm-start justify-content-center justify-content-lg-between mx-5 mx-sm-0">
                   {links.map((link, i) => (
                     <motion.li
                       key={i}
                       className="nav-item px-2 px-lg-0 col-12 col-sm-5 col-md-4 col-lg-auto"
                       whileHover={{ scale: 1.1 }}
                     >
-                      <NavLink
-                        to={`#${link.name}`}
-                        className={({ isActive }) => "nav-link"}
+                      {/* NavLink doesn't redirect to another element id */}
+                      <a
+                        href={`/#${link.name.toLowerCase()}`}
+                        className="nav-link hover-pointer"
                       >
                         <i
                           className={`d-inline-block d-lg-none bi bi-${link.icon}`}
                         ></i>{" "}
                         {link.name}
-                      </NavLink>
+                      </a>
                     </motion.li>
                   ))}
                 </div>

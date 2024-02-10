@@ -7,8 +7,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.main {
-  font-family: Poppins !important;
+#container {
+  font-family: "Poppins", sans-serif !important;
 }
 
 .invalid {
@@ -30,6 +30,10 @@ body {
   font-size: 23px;
   width: 45px;
   height: 40px;
+}
+
+.hover-cursor-default:hover {
+  cursor: default !important;
 }
 
 .hover-pointer:hover {

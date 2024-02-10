@@ -19,6 +19,7 @@ import DisneyPlus from "./projects/recriando-sites/disney-plus/DisneyPlus";
 import Spotify from "./projects/recriando-sites/spotify/Spotify";
 import ScoreKeeper from "./projects/simple-projects/score-keeper/ScoreKeeper";
 import ToDoList from "./projects/simple-projects/todo-list/ToDoList";
+import About from "./components/About";
 
 const router = createBrowserRouter([
   {
@@ -27,9 +28,9 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Home /> },
-      { path: "/about", navLink: true },
-      { path: "/skills", navLink: true },
-      { path: "/contact", navLink: true },
+      // { path: "/about", element: <About />, navLink: true },
+      // { path: "/skills", navLink: true },
+      // { path: "/contact", navLink: true },
       // {
       //   path: "/people",
       //   element: <People />,
