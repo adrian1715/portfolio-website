@@ -52,9 +52,10 @@ export default function Letrico() {
                 <button
                   key={letter}
                   id={`${count}${letter}`}
-                  className={`cursor-default fw-bold btn rounded me-2 border ${
+                  className={`opacity-100 fw-bold btn rounded me-2 border ${
                     count === "first" ? "btn-light border-dark" : ""
                   } letter-wrapper`}
+                  disabled
                 >
                   _
                 </button>
