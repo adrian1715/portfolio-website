@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Home.module.css";
 import About from "../components/About";
+import ScrollTop from "../components/ScrollTop";
 
 export default function Home() {
   return (
@@ -31,6 +32,8 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <ScrollTop />
 
       <About />
 
