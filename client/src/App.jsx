@@ -1,7 +1,7 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootElement from "./pages/RootElement";
-import Home from "./pages/Home";
+import Homepage from "./pages/Homepage";
 import People from "./pages/People";
 import NewPerson from "./pages/NewPerson";
 import NotFound from "./pages/NotFound";
@@ -19,7 +19,6 @@ import DisneyPlus from "./projects/recriando-sites/disney-plus/DisneyPlus";
 import Spotify from "./projects/recriando-sites/spotify/Spotify";
 import ScoreKeeper from "./projects/simple-projects/score-keeper/ScoreKeeper";
 import ToDoList from "./projects/simple-projects/todo-list/ToDoList";
-import About from "./components/About";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +26,7 @@ const router = createBrowserRouter([
     element: <RootElement />,
     errorElement: <NotFound />,
     children: [
-      { index: true, element: <Home /> },
+      { index: true, element: <Homepage /> },
       // { path: "/about", element: <About />, navLink: true },
       // { path: "/skills", navLink: true },
       // { path: "/contact", navLink: true },

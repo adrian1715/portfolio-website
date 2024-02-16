@@ -14,9 +14,10 @@ export default function NavbarNew({ links: navLinks }) {
     { name: "Home", icon: "house-fill" },
     { name: "About", icon: "info-circle-fill" },
     { name: "Skills", icon: "mortarboard-fill" },
-    { name: "Certificates", icon: "file-earmark-text-fill" },
+    { name: "Curriculum", icon: "file-earmark-text-fill" },
     { name: "Portfolio", icon: "code" },
     { name: "Contact", icon: "envelope-at-fill" },
+    // add CV (currículo completo)
   ];
   // console.log(navLinks);
 
@@ -44,9 +45,12 @@ export default function NavbarNew({ links: navLinks }) {
           : ""
       }`}
     >
-      <nav className="navbar navbar-expand-lg mx-2 mx-sm-3 mx-lg-4">
+      <nav className="navbar navbar-expand-lg mx-2 mx-sm-3 mx-lg-4 mx-xl-5">
         <div className="row col-12 col-lg-auto align-items-center justify-content-between">
-          <NavLink to="/" className={({ isActive }) => "navbar-brand col-auto"}>
+          <NavLink
+            to="/"
+            className={({ isActive }) => "navbar-brand col-auto fs-4"}
+          >
             Adrian Lobato
           </NavLink>
           <motion.button
@@ -96,7 +100,7 @@ export default function NavbarNew({ links: navLinks }) {
                       {/* NavLink doesn't redirect to another element id */}
                       <a
                         href={`/#${link.name.toLowerCase()}`}
-                        className="nav-link hover-pointer"
+                        className="nav-link hover-pointer fs-5 p-lg-4"
                       >
                         <i
                           className={`d-inline-block d-lg-none bi bi-${link.icon}`}
