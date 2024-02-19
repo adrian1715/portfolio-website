@@ -16,6 +16,7 @@ export default function RootElement({ children }) {
   }, []);
 
   const { pathname } = useLocation();
+  const isIndex = pathname === "/";
 
   return (
     <>
@@ -24,12 +25,8 @@ export default function RootElement({ children }) {
         <link id="vite-icon" rel="icon" type="image/svg+xml" href="/vite.svg" />
       </Helmet>
 
-      {pathname !== "/" ? (
-        <Navbar links={navLinks} />
-      ) : (
-        <NavbarNew links={navLinks} />
-      )}
-      <div id="container" className="container mt-4">
+      {!isIndex ? <Navbar links={navLinks} /> : <NavbarNew links={navLinks} />}
+      <div id="container" className={`container${!isIndex ? " mt-4" : ""}`}>
         <Outlet />
       </div>
     </>

@@ -14,8 +14,8 @@ export default function NavbarNew({ links: navLinks }) {
     { name: "Home", icon: "house-fill" },
     { name: "About", icon: "info-circle-fill" },
     { name: "Skills", icon: "mortarboard-fill" },
-    { name: "Curriculum", icon: "file-earmark-text-fill" },
     { name: "Portfolio", icon: "code" },
+    { name: "Curriculum", icon: "file-earmark-text-fill" },
     { name: "Contact", icon: "envelope-at-fill" },
     // add CV (currículo completo)
   ];
@@ -38,14 +38,14 @@ export default function NavbarNew({ links: navLinks }) {
   }, []);
 
   return (
-    <header
-      className={`header sticky-top ${
-        isShowingNavbar && isNavbarButtonClicked
-          ? "border-bottom border-top-0 rounded"
-          : ""
-      }`}
-    >
-      <nav className="navbar navbar-expand-lg mx-2 mx-sm-3 mx-lg-4 mx-xl-5">
+    <header className="header">
+      <nav
+        className={`fixed-top bg-white navbar navbar-expand-lg px-2 px-sm-3 px-lg-4 px-xl-5 ${
+          isShowingNavbar && isNavbarButtonClicked
+            ? "border-bottom border-top-0 rounded"
+            : ""
+        }`}
+      >
         <div className="row col-12 col-lg-auto align-items-center justify-content-between">
           <NavLink
             to="/"

@@ -1,20 +1,13 @@
-.homeSection {
-  display: flex;
-  align-items: center;
-  border-radius: var(--bs-border-radius) !important;
-  height: 91vh;
-}
-
 .section {
   height: 100vh;
   /* color: black; */
   /* background: #fbe8d2; */
   box-shadow: var(--bs-box-shadow);
   border-radius: 5px;
-  /* padding: 3rem; */
-  /* display: flex;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
 }
 
 /* MEDIUM */
@@ -26,16 +19,10 @@
 
 /* LARGE */
 @media (min-width: 992px) {
-  .homeSection {
-    height: 85vh;
-    margin-bottom: 1.5rem;
-  }
 }
 
 .profileImg {
   border-radius: 100%;
-  /* max-height: 10rem; */
-  /* width: 200px; */
   max-width: 100%;
   max-height: 25rem;
 }

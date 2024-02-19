@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Home() {
   return (
     <main>
-      <section id="home" className={styles.homeSection}>
+      <section id="home" className={styles.section}>
         <div className="row justify-content-around">
           <img
             src="/images/me.jpg"
