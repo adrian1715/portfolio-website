@@ -1,5 +1,5 @@
+import React, { Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Fragment } from "react";
 import NavLinkDropdown from "./NavLinkDropdown";
 import { formatLinkPath } from "../utils/formatLinkPath";
 import ThemeToggler from "./ThemeToggler";

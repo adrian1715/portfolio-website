@@ -13,13 +13,11 @@ export default function NavbarNew({ links: navLinks }) {
   const links = [
     { name: "Home", icon: "house-fill" },
     { name: "About", icon: "info-circle-fill" },
-    { name: "Skills", icon: "mortarboard-fill" },
+    { name: "Qualifications", icon: "mortarboard-fill" },
+    { name: "Experience", icon: "briefcase-fill" },
     { name: "Portfolio", icon: "code" },
-    { name: "Curriculum", icon: "file-earmark-text-fill" },
     { name: "Contact", icon: "envelope-at-fill" },
-    // add CV (currículo completo)
   ];
-  // console.log(navLinks);
 
   const toggleNavbar = () => {
     setIsShowingNavbar((prevState) => !prevState);
@@ -49,7 +47,7 @@ export default function NavbarNew({ links: navLinks }) {
         <div className="row col-12 col-lg-auto align-items-center justify-content-between">
           <NavLink
             to="/"
-            className={({ isActive }) => "navbar-brand col-auto fs-4"}
+            className={({ isActive }) => "navbar-brand col-auto fs-4 text-dark"}
           >
             Adrian Lobato
           </NavLink>
@@ -61,7 +59,11 @@ export default function NavbarNew({ links: navLinks }) {
             animate={{ rotate: isShowingNavbar ? 180 : 0 }}
             transition={{ duration: 0.6, type: "spring" }}
           >
-            <i className={`bi bi-${isShowingNavbar ? "x" : "caret-down"}`}></i>
+            <i
+              className={`text-dark bi bi-${
+                isShowingNavbar ? "x" : "caret-down"
+              }`}
+            ></i>
           </motion.button>
         </div>
         <AnimatePresence>
@@ -100,7 +102,12 @@ export default function NavbarNew({ links: navLinks }) {
                       {/* NavLink doesn't redirect to another element id */}
                       <a
                         href={`/#${link.name.toLowerCase()}`}
-                        className="nav-link hover-pointer fs-5 p-lg-4"
+                        className="nav-link hover-pointer fs-5 p-lg-3 p-xl-4 text-dark"
+                        onClick={() =>
+                          isShowingNavbar && window.innerWidth < 992
+                            ? setIsShowingNavbar(false)
+                            : ""
+                        }
                       >
                         <i
                           className={`d-inline-block d-lg-none bi bi-${link.icon}`}
@@ -115,7 +122,7 @@ export default function NavbarNew({ links: navLinks }) {
           )}
         </AnimatePresence>
 
-        {isShowingNavbar && <ThemeTogglerNew />}
+        {isShowingNavbar && <ThemeTogglerNew borderDark />}
       </nav>
     </header>
   );

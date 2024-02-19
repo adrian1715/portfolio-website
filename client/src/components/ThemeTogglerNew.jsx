@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const ThemeToggler = () => {
+const ThemeToggler = ({ borderDark, ...props }) => {
   useEffect(() => {
     if (!theme) {
       setTheme("light");
@@ -23,14 +23,17 @@ const ThemeToggler = () => {
 
   return (
     <motion.div
-      className=" d-flex align-items-center m-2 border rounded-circle px-1 hover-pointer"
+      {...props}
+      className="d-flex align-items-center m-2 border rounded-circle px-1 hover-pointer"
       onClick={toggleTheme}
       whileHover={{ scale: 1.1 }}
     >
       {isDark ? (
-        <i className="bi bi-moon"></i>
+        <i className={`${borderDark ? "text-dark " : ""}bi bi-moon`}></i>
       ) : (
-        <i className="bi bi-brightness-high"></i>
+        <i
+          className={`${borderDark ? "text-dark " : ""}bi bi-brightness-high`}
+        ></i>
       )}
     </motion.div>
   );
