@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Homepage.module.css";
 import Home from "../components/homepage/Home";
-import About from "../components/About";
+import About from "../components/homepage/About";
 import ScrollTop from "../components/ScrollTop";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
@@ -19,10 +19,7 @@ export default function Homepage() {
 
       <ScrollTop />
 
-      {/* <About /> */}
-      <section id="about" className={styles.section}>
-        <h2>About me</h2>
-      </section>
+      <About />
 
       <section id="skills" className={styles.section}>
         <h2>Skills and Technologies</h2>
