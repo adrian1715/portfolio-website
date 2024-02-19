@@ -5,6 +5,7 @@ import About from "../components/homepage/About";
 import ScrollTop from "../components/ScrollTop";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
+import Skills from "../components/homepage/Skills";
 
 export default function Homepage() {
   const socials = ["linkedin", "github", "envelope-fill"];
@@ -21,9 +22,7 @@ export default function Homepage() {
 
       <About />
 
-      <section id="skills" className={styles.section}>
-        <h2>Skills and Technologies</h2>
-      </section>
+      <Skills />
 
       <section id="portfolio" className={styles.section}>
         <h2>Portfolio</h2>
