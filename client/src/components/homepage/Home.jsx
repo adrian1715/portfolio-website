@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../pages/Homepage.module.css";
 import { motion } from "framer-motion";
+import DownloadCV from "../DownloadCV";
 
 export default function Home() {
   return (
@@ -37,12 +38,7 @@ export default function Home() {
                   </a>
                 </div>
                 <div className="col-12 col-lg-6">
-                  <a href="#curriculum">
-                    <button className="btn btn-secondary w-100">
-                      Check CV{" "}
-                      <i className="bi bi-file-earmark-text-fill ms-2"></i>
-                    </button>
-                  </a>
+                  <DownloadCV className="btn btn-secondary w-100" />
                 </div>
               </div>
             </div>
