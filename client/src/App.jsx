@@ -19,6 +19,7 @@ import DisneyPlus from "./projects/recriando-sites/disney-plus/DisneyPlus";
 import Spotify from "./projects/recriando-sites/spotify/Spotify";
 import ScoreKeeper from "./projects/simple-projects/score-keeper/ScoreKeeper";
 import ToDoList from "./projects/simple-projects/todo-list/ToDoList";
+import Certificates from "./pages/Certificates";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,19 @@ const router = createBrowserRouter([
       //   navLink: true,
       //   children: [{ path: "new", element: <NewPerson /> }],
       // },
+      {
+        path: "/certificates",
+        element: <Certificates />,
+        navLink: true,
+        type: "dropdown",
+        items: ["Alura", "Udemy", "Youtube", "SymfonyCasts"],
+        children: [
+          { path: "alura" },
+          { path: "udemy" },
+          { path: "youtube" },
+          { path: "symfonycasts" },
+        ],
+      },
       {
         path: "/projects",
         element: <Projects />,

@@ -4,7 +4,9 @@ import { formatLinkPath } from "../utils/formatLinkPath";
 
 export default function NavLinkDropdown({ link, projects }) {
   const { pathname } = useLocation();
-  const isActive = pathname === "/projects";
+  const isActive =
+    (pathname === "/projects" && projects) ||
+    (pathname === "/certificates" && !projects);
 
   return (
     <Fragment key={link.id}>
