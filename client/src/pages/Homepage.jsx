@@ -5,7 +5,7 @@ import About from "../components/homepage/About";
 import ScrollTop from "../components/ScrollTop";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
-import Skills from "../components/homepage/Skills";
+import Qualifications from "../components/homepage/Qualifications";
 import Portfolio from "../components/homepage/Portfolio";
 
 export default function Homepage() {
@@ -19,21 +19,21 @@ export default function Homepage() {
 
       <Home />
 
-      <ScrollTop />
-
       <About />
 
-      <Skills />
+      <Qualifications />
+
+      <section id="experience" className={styles.section}>
+        <h2>Experience</h2>
+      </section>
 
       <Portfolio />
-
-      <section id="curriculum" className={styles.section}>
-        <h2>Curriculum</h2>
-      </section>
 
       <section id="contact" className={styles.section}>
         <h2>Contact</h2>
       </section>
+
+      <ScrollTop />
     </>
   );
 }

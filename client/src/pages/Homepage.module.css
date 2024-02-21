@@ -2,7 +2,7 @@
   height: 100vh;
   /* color: black; */
   /* background: #fbe8d2; */
-  box-shadow: var(--bs-box-shadow);
+  /* box-shadow: var(--bs-box-shadow); */
   border-radius: 5px;
   display: flex;
   flex-direction: column;
