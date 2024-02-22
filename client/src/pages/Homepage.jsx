@@ -6,6 +6,7 @@ import ScrollTop from "../components/ScrollTop";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet";
 import Qualifications from "../components/homepage/Qualifications";
+import Experience from "../components/homepage/Experience";
 import Portfolio from "../components/homepage/Portfolio";
 
 export default function Homepage() {
@@ -23,9 +24,7 @@ export default function Homepage() {
 
       <Qualifications />
 
-      <section id="experience" className={styles.section}>
-        <h2>Experience</h2>
-      </section>
+      <Experience />
 
       <Portfolio />
 
