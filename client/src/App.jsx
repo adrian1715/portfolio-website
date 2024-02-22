@@ -2,8 +2,6 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootElement from "./pages/RootElement";
 import Homepage from "./pages/Homepage";
-import People from "./pages/People";
-import NewPerson from "./pages/NewPerson";
 import NotFound from "./pages/NotFound";
 import Projects from "./pages/Projects";
 import Letrico from "./projects/letrico/Letrico";
@@ -28,15 +26,6 @@ const router = createBrowserRouter([
     errorElement: <NotFound />,
     children: [
       { index: true, element: <Homepage /> },
-      // { path: "/about", element: <About />, navLink: true },
-      // { path: "/skills", navLink: true },
-      // { path: "/contact", navLink: true },
-      // {
-      //   path: "/people",
-      //   element: <People />,
-      //   navLink: true,
-      //   children: [{ path: "new", element: <NewPerson /> }],
-      // },
       {
         path: "/certificates",
         element: <Certificates />,
