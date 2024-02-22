@@ -11,7 +11,7 @@ export default function Home() {
           <img
             src="/images/me.jpg"
             id="home-profile-image"
-            className="rounded-circle col-11 col-sm-auto col-lg-5 col-xl-auto mb-3 mb-lg-0"
+            className="rounded-circle col-11 col-sm-auto col-lg-5 col-xl-auto mt-5 mt-lg-0 mb-3 mb-lg-0"
             style={{ maxHeight: "30rem" }}
           />
           <div className="row col-10 col-lg-6 d-flex justify-content-between">
@@ -30,15 +30,18 @@ export default function Home() {
                 nesciunt dolore, exercitationem excepturi et?
               </p>
               <div className="w-100 row">
-                <div className="col-12 col-lg-6 mb-1 mb-lg-0">
-                  <a href="#contact">
-                    <button className="btn btn-primary w-100">
-                      Get in touch <i className="bi bi-send-fill ms-2"></i>
-                    </button>
+                <div className="col-xl-6 px-xl-1 p-xxl-auto">
+                  <a
+                    href="#contact"
+                    className={`mb-1 mb-xl-0 btn btn-primary px-xl-0 px-xxl-auto py-xl-3 w-100 ${styles.buttonText}`}
+                  >
+                    Get in touch <i className="bi bi-send-fill ms-2"></i>
                   </a>
                 </div>
-                <div className="col-12 col-lg-6">
-                  <DownloadCV className="btn btn-secondary w-100" />
+                <div className="col-xl-6 px-xl-1 p-xxl-auto">
+                  <DownloadCV
+                    className={`btn btn-secondary px-xl-0 px-xxl-auto py-xl-3 w-100 ${styles.buttonText}`}
+                  />
                 </div>
               </div>
             </div>
@@ -81,7 +84,7 @@ export default function Home() {
                 initial={{ opacity: 1 }}
                 whileHover={{ opacity: 0.75, scale: 1.1 }}
               >
-                <a href="" target="_blank" style={{ color: "inherit" }}>
+                <a href="#contact" style={{ color: "inherit" }}>
                   <i className={`bi bi-envelope-fill fs-1`}></i>
                 </a>
               </motion.li>

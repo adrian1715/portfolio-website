@@ -8,11 +8,13 @@ export default function Experience() {
 
   return (
     <section id="experience" className={styles.section}>
-      <h2 className="fs-1 mb-5">Experience</h2>
-      <div id="xp-all" className="w-100">
-        <div id="xp-head" className="row justify-content-center mb-4">
+      <h2 id="experience-title" className="fs-1 mb-4 mb-sm-5">
+        Experience
+      </h2>
+      <div id="experience-content" className="w-100">
+        <div id="experience-head" className="row justify-content-center mb-4">
           <a
-            className={`fs-2 col-auto hover-pointer text-decoration-none px-4 ${
+            className={`fs-2 col-auto hover-pointer text-decoration-none px-sm-4 ${
               xpType === "education" ? "nav-link active" : "text-secondary"
             } ${styles.xpHeadItem}`}
             onClick={() => setXpType("education")}
@@ -21,7 +23,7 @@ export default function Experience() {
             Education
           </a>
           <a
-            className={`fs-2 col-auto hover-pointer text-decoration-none px-4 ${
+            className={`fs-2 col-auto hover-pointer text-decoration-none px-sm-4 ${
               xpType === "work" ? "nav-link active" : "text-secondary"
             } ${styles.xpHeadItem}`}
             onClick={() => setXpType("work")}
@@ -30,7 +32,10 @@ export default function Experience() {
             Work
           </a>
         </div>
-        <div id="xp-body" className="d-flex flex-column align-items-center">
+        <div
+          id="experience-body"
+          className="d-flex flex-column align-items-center"
+        >
           {xpType === "education" && (
             <>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">

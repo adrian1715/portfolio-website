@@ -11,8 +11,6 @@ import Portfolio from "../components/homepage/Portfolio";
 import Contact from "../components/homepage/Contact";
 
 export default function Homepage() {
-  const socials = ["linkedin", "github", "envelope-fill"];
-
   return (
     <>
       <Helmet>

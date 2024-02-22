@@ -18,14 +18,23 @@ const DownloadCV = ({ ...props }) => {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
+
+      setIsDownloaded(true);
+      setTimeout(() => setIsDownloaded(false), 2000);
     } catch (error) {
       console.error("Error downloading PDF:", error);
     }
   };
 
   return (
-    <button {...props} onClick={handleDownload}>
-      Download CV<i className="bi bi-file-earmark-text-fill ms-2"></i>
+    <button {...props} onClick={handleDownload} disabled={isDownloaded}>
+      {!isDownloaded ? (
+        <>
+          Download CV<i className="bi bi-file-earmark-text-fill ms-2"></i>
+        </>
+      ) : (
+        "Downloading..."
+      )}
     </button>
   );
 };

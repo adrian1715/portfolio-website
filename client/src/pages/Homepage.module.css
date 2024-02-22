@@ -25,6 +25,10 @@
   .w-md-100 {
     width: 100%;
   }
+
+  .buttonText {
+    font-size: 1.5rem !important;
+  }
 }
 
 /* LARGE */
