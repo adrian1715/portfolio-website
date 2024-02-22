@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet";
 import Qualifications from "../components/homepage/Qualifications";
 import Experience from "../components/homepage/Experience";
 import Portfolio from "../components/homepage/Portfolio";
+import Contact from "../components/homepage/Contact";
 
 export default function Homepage() {
   const socials = ["linkedin", "github", "envelope-fill"];
@@ -28,9 +29,7 @@ export default function Homepage() {
 
       <Portfolio />
 
-      <section id="contact" className={styles.section}>
-        <h2>Contact</h2>
-      </section>
+      <Contact />
 
       <ScrollTop />
     </>
