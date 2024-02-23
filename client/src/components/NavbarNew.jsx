@@ -38,16 +38,17 @@ export default function NavbarNew({ links: navLinks }) {
   return (
     <header className="header">
       <nav
-        className={`fixed-top bg-white navbar navbar-expand-lg px-2 px-sm-3 px-lg-4 px-xl-5 ${
+        className={`fixed-top navbar navbar-expand-lg px-2 px-sm-3 px-lg-4 px-xl-5 ${
           isShowingNavbar && isNavbarButtonClicked
             ? "border-bottom border-top-0 rounded"
             : ""
         }`}
+        style={{ background: "var(--bs-body-bg)" }}
       >
         <div className="row col-12 col-lg-auto align-items-center justify-content-between">
           <NavLink
             to="/"
-            className={({ isActive }) => "navbar-brand col-auto fs-4 text-dark"}
+            className={({ isActive }) => "navbar-brand col-auto fs-4"}
           >
             Adrian Lobato
           </NavLink>
@@ -59,11 +60,7 @@ export default function NavbarNew({ links: navLinks }) {
             animate={{ rotate: isShowingNavbar ? 180 : 0 }}
             transition={{ duration: 0.6, type: "spring" }}
           >
-            <i
-              className={`text-dark bi bi-${
-                isShowingNavbar ? "x" : "caret-down"
-              }`}
-            ></i>
+            <i className={`bi bi-${isShowingNavbar ? "x" : "caret-down"}`}></i>
           </motion.button>
         </div>
         <AnimatePresence>
@@ -102,7 +99,7 @@ export default function NavbarNew({ links: navLinks }) {
                       {/* NavLink doesn't redirect to another element id */}
                       <a
                         href={`/#${link.name.toLowerCase()}`}
-                        className="nav-link hover-pointer fs-5 p-lg-3 p-xl-4 text-dark"
+                        className="nav-link hover-pointer fs-5 p-lg-3 p-xl-4"
                         onClick={() =>
                           isShowingNavbar && window.innerWidth < 992
                             ? setIsShowingNavbar(false)
@@ -122,7 +119,7 @@ export default function NavbarNew({ links: navLinks }) {
           )}
         </AnimatePresence>
 
-        {isShowingNavbar && <ThemeTogglerNew borderDark />}
+        {isShowingNavbar && <ThemeTogglerNew />}
       </nav>
     </header>
   );
