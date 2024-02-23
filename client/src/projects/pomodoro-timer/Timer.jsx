@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Timer.module.css";
 import ProjectsNote from "../../components/ProjectsNote";
