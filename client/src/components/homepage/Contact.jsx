@@ -2,15 +2,10 @@ import React, { useState } from "react";
 import styles from "../../pages/Homepage.module.css";
 import Spinner from "../Spinner";
 import Alert from "../Alert";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [hasEmail, setHasEmail] = useState(false);
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
 
   const [formStatus, setFormStatus] = useState({
     loading: false,
@@ -24,43 +19,40 @@ export default function Contact() {
     setTimeout(() => setHasEmail(false), 2000);
   };
 
-  const changeHandler = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
   const submitHandler = (e) => {
     e.preventDefault();
 
-    setFormStatus({ loading: true, success: false, error: null });
+    setFormStatus({ loading: true, success: false, error: null }); // setting loading status
 
-    fetch("https://formsubmit.co/ajax/adrian40001@gmail.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) =>
-        setFormStatus((prevState) => ({
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_REACT_APP_SERVICE_ID,
+        import.meta.env.VITE_REACT_APP_TEMPLATE_ID,
+        e.target, // form
+        import.meta.env.VITE_REACT_APP_PUBLIC_KEY
+      )
+      .then((res) => {
+        if (res.status !== 200)
+          throw new Error("Something went wrong, please try again");
+
+        return setFormStatus((prevState) => ({
           ...prevState,
           loading: false,
           success: true,
-        }))
-      )
-      .catch((error) =>
-        setFormStatus((prevState) => ({ ...prevState, loading: false, error }))
-      );
+        })); // message successfully submitted
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setFormStatus((prevState) => ({
+          ...prevState,
+          loading: false,
+          success: false,
+          error,
+        })); // submition failed
+      });
 
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    const elements = e.target.querySelectorAll("input, textarea");
+    elements.forEach((element) => (element.value = "")); // cleaning input values
   };
 
   return (
@@ -74,7 +66,6 @@ export default function Contact() {
         className="w-100 d-flex flex-column align-items-center"
       >
         <form className="col-9" onSubmit={submitHandler}>
-          <input type="hidden" name="_captcha" value="false" />
           <div className="row">
             <div className="col-md-6">
               <div className="input-group mb-3">
@@ -86,8 +77,6 @@ export default function Contact() {
                   className="form-control"
                   placeholder="Name"
                   name="name"
-                  value={formData.name}
-                  onChange={changeHandler}
                   required
                 />
               </div>
@@ -96,12 +85,10 @@ export default function Contact() {
               <div className="input-group mb-3">
                 <span className="input-group-text">@</span>
                 <input
-                  type="text"
+                  type="email"
                   className="form-control"
                   placeholder="Email"
                   name="email"
-                  value={formData.email}
-                  onChange={changeHandler}
                   required
                 />
               </div>
@@ -113,8 +100,6 @@ export default function Contact() {
               id="floatingTextarea"
               placeholder="Message"
               name="message"
-              value={formData.message}
-              onChange={changeHandler}
               style={{ height: "30vh" }}
               required
             ></textarea>
@@ -156,7 +141,10 @@ export default function Contact() {
           {formStatus.error && (
             <Alert
               type="danger"
-              message="Looks like an error occurred, please try again"
+              message={
+                formStatus.error.message ||
+                "Looks like an error occurred, please try again"
+              }
             />
           )}
         </form>
