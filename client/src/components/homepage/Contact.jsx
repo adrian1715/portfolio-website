@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 import styles from "../../pages/Homepage.module.css";
+import Spinner from "../Spinner";
+import Alert from "../Alert";
 
 export default function Contact() {
   const [hasEmail, setHasEmail] = useState(false);
 
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [formStatus, setFormStatus] = useState({
+    loading: false,
+    success: false,
+    error: null,
+  });
 
   const getEmail = () => {
     navigator.clipboard.writeText("adrian40001@gmail.com");
@@ -12,20 +24,57 @@ export default function Contact() {
     setTimeout(() => setHasEmail(false), 2000);
   };
 
-  function submitHandler(e) {
+  const changeHandler = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const submitHandler = (e) => {
     e.preventDefault();
-    setFormData("Submitted!");
-    setTimeout(() => setFormData(""), 2000);
-    // send message as an email
-  }
+
+    setFormStatus({ loading: true, success: false, error: null });
+
+    fetch("https://formsubmit.co/ajax/adrian40001@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) =>
+        setFormStatus((prevState) => ({
+          ...prevState,
+          loading: false,
+          success: true,
+        }))
+      )
+      .catch((error) =>
+        setFormStatus((prevState) => ({ ...prevState, loading: false, error }))
+      );
+
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
+  };
 
   return (
     <section id="contact" className={styles.section}>
       <h2 id="contact-title" className="fs-1 mb-5">
         Contact
       </h2>
-      <div id="contact-content" className="w-100 d-flex justify-content-center">
-        <form action="" className="col-9" onSubmit={submitHandler}>
+
+      <div
+        id="contact-content"
+        className="w-100 d-flex flex-column align-items-center"
+      >
+        <form className="col-9" onSubmit={submitHandler}>
+          <input type="hidden" name="_captcha" value="false" />
           <div className="row">
             <div className="col-md-6">
               <div className="input-group mb-3">
@@ -36,6 +85,10 @@ export default function Contact() {
                   type="text"
                   className="form-control"
                   placeholder="Name"
+                  name="name"
+                  value={formData.name}
+                  onChange={changeHandler}
+                  required
                 />
               </div>
             </div>
@@ -46,27 +99,43 @@ export default function Contact() {
                   type="text"
                   className="form-control"
                   placeholder="Email"
+                  name="email"
+                  value={formData.email}
+                  onChange={changeHandler}
+                  required
                 />
               </div>
             </div>
           </div>
-          <div className="form-group">
-            {/* <label htmlFor="message" className="">Message</label> */}
+          <div className="form-floating">
             <textarea
-              name=""
-              id=""
-              cols="50"
-              rows="15"
               className="form-control"
+              id="floatingTextarea"
               placeholder="Message"
+              name="message"
+              value={formData.message}
+              onChange={changeHandler}
+              style={{ height: "30vh" }}
+              required
             ></textarea>
+            <label htmlFor="floatingTextarea">Message</label>
           </div>
           <div className="row mt-4 justify-content-between mx-1">
             <button
               className={`btn btn-primary col-md-auto col-lg-5 py-md-3 mb-2 mb-md-0 ${styles.buttonText}`}
               type="submit"
+              disabled={formStatus.loading}
             >
-              Send message<i className="bi bi-send-fill ms-3"></i>
+              {!formStatus.loading ? (
+                <>
+                  Send message<i className="bi bi-send-fill ms-3"></i>
+                </>
+              ) : (
+                <div className="d-flex align-items-center justify-content-center">
+                  <span className="me-3">Submitting...</span>
+                  <Spinner />
+                </div>
+              )}
             </button>
             <button
               className={`btn btn-secondary col-md-5 py-md-3 ${styles.buttonText}`}
@@ -81,8 +150,16 @@ export default function Contact() {
               ></i>
             </button>
           </div>
+          {formStatus.success && (
+            <Alert type="success" message="Message successfully submitted" />
+          )}
+          {formStatus.error && (
+            <Alert
+              type="danger"
+              message="Looks like an error occurred, please try again"
+            />
+          )}
         </form>
-        {formData && <p className="mt-4">{formData}</p>}
       </div>
     </section>
   );
