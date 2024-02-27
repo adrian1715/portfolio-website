@@ -86,7 +86,12 @@ export default function Skills() {
           </h3>
           <div id="technologies-content" className="row">
             <motion.div
-              // animate={{ height: isShowingList.frontend ? "auto" : "100%" }}
+              animate={
+                !isShowingList.backend &&
+                !isShowingList.others && {
+                  height: isShowingList.frontend ? "auto" : "6vh",
+                }
+              }
               id="frontend"
               className={`mb-2 mb-md-3 col-md-6 col-xl-4 ${
                 isShowingList.frontend ? "border rounded p-0" : ""
@@ -116,10 +121,10 @@ export default function Skills() {
                   <motion.ul
                     id="frontend-body"
                     className="text-start d-flex ps-5 flex-column"
-                    initial={{ y: -25, opacity: 0 }}
+                    initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -25, opacity: 0, transition: { duration: 0.1 } }}
-                    transition={{ duration: 0.3 }}
+                    exit={{ y: -50, opacity: 0, transition: { duration: 0.1 } }}
+                    transition={{ duration: 0.4 }}
                   >
                     <li>
                       <FontAwesomeIcon icon={faHtml5} color="#e34c26" /> HTML
@@ -159,7 +164,12 @@ export default function Skills() {
             </motion.div>
 
             <motion.div
-              // animate={{ height: isShowingList.backend ? "auto" : "100%" }}
+              animate={
+                !isShowingList.frontend &&
+                !isShowingList.others && {
+                  height: isShowingList.backend ? "auto" : "6vh",
+                }
+              }
               id="backend"
               className={`mb-2 mb-md-3 col-md-6 col-xl-4 ${
                 isShowingList.backend ? "border rounded p-0" : ""
@@ -189,31 +199,59 @@ export default function Skills() {
                   <motion.ul
                     id="backend-body"
                     className="text-start d-flex ps-5 flex-column"
-                    initial={{ y: -25, opacity: 0 }}
+                    initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -25, opacity: 0, transition: { duration: 0.1 } }}
-                    transition={{ duration: 0.3 }}
+                    exit={{ y: -50, opacity: 0, transition: { duration: 0.1 } }}
+                    transition={{ duration: 0.4 }}
                   >
                     <li>
-                      <FontAwesomeIcon icon={faNode} /> Node JS
+                      <FontAwesomeIcon
+                        icon={faNode}
+                        style={{ color: "#3C873A" }}
+                      />{" "}
+                      Node JS
                     </li>
                     <li>
                       <FontAwesomeIcon icon={faNodeJs} /> Express JS
                     </li>
                     <li>
-                      <FontAwesomeIcon icon={faPhp} /> PHP
+                      <FontAwesomeIcon
+                        icon={faPhp}
+                        style={{
+                          color: "#232531",
+                          background: "#8993be",
+                          borderRadius: "50%",
+                        }}
+                      />{" "}
+                      PHP
                     </li>
                     <li>
-                      <FontAwesomeIcon icon={faDatabase} /> MySQL
+                      <FontAwesomeIcon
+                        icon={faDatabase}
+                        style={{ color: "#FFD700" }}
+                      />{" "}
+                      MySQL
                     </li>
                     <li>
-                      <FontAwesomeIcon icon={faServer} /> MongoDB
+                      <FontAwesomeIcon
+                        icon={faServer}
+                        style={{ color: "#00684A" }}
+                      />{" "}
+                      MongoDB
                     </li>
                     <li>
-                      <FontAwesomeIcon icon={faC} /> Basic C/C++
+                      <FontAwesomeIcon
+                        icon={faC}
+                        style={{ color: "#1D24CA" }}
+                      />{" "}
+                      Basic C/C++
                     </li>
                     <li>
-                      <FontAwesomeIcon icon={faGit} /> Git/Github
+                      <FontAwesomeIcon
+                        icon={faGit}
+                        style={{ color: "#F1502F" }}
+                      />{" "}
+                      Git/Github
                     </li>
                   </motion.ul>
                 )}
@@ -221,7 +259,12 @@ export default function Skills() {
             </motion.div>
 
             <motion.div
-              // animate={{ height: isShowingList.others ? "auto" : "100%" }}
+              animate={
+                !isShowingList.frontend &&
+                !isShowingList.backend && {
+                  height: isShowingList.others ? "auto" : "6vh",
+                }
+              }
               id="others"
               className={`mb-2 mb-md-3 col-md-6 col-xl-4 ${
                 isShowingList.others ? "border rounded p-0" : ""
@@ -249,11 +292,11 @@ export default function Skills() {
                 {isShowingList.others && (
                   <motion.ul
                     id="others-body"
-                    className="text-start"
-                    initial={{ y: -25, opacity: 0 }}
+                    className="text-start d-flex ps-5 flex-column"
+                    initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -25, opacity: 0, transition: { duration: 0.1 } }}
-                    transition={{ duration: 0.3 }}
+                    exit={{ y: -50, opacity: 0, transition: { duration: 0.1 } }}
+                    transition={{ duration: 0.4 }}
                   >
                     <li>
                       Basic marketing, entrepreneurship and economics knowledge

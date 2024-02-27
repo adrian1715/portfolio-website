@@ -66,7 +66,12 @@ export default function Certificates({ isShowingList, setIsShowingList }) {
       </h3>
       <div id="courses-content" className="row justify-content-center">
         {items.map((item) => (
-          <div
+          <motion.div
+            animate={{
+              height: isShowingList[item[0].toLowerCase() + item.substring(1)]
+                ? "auto"
+                : "6vh",
+            }}
             key={item}
             id={item.toLowerCase()}
             className={`mb-2 mb-md-3 col-md-6 ${
@@ -112,42 +117,50 @@ export default function Certificates({ isShowingList, setIsShowingList }) {
               </motion.button>
             </div>
 
-            {isShowingList[item[0].toLowerCase() + item.substring(1)] && (
-              <ul
-                id={`${item.toLowerCase()}-body`}
-                // className={``}
-              >
-                {courses[item[0].toLowerCase() + item.substring(1)].map(
-                  (course, i, array) =>
-                    i < 4 ? (
-                      <motion.li
-                        key={i}
-                        initial={{ y: -25, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{
-                          y: -25,
-                          opacity: 0,
-                          transition: { duration: 0.1 },
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {typeof course === "object"
-                          ? `${course.name} - ${course.author}`
-                          : course}
-                      </motion.li>
-                    ) : i === array.length - 1 ? (
-                      <li key={i}>
-                        <Link to={`/certificates/${item.toLowerCase()}`}>
-                          See all
-                        </Link>
-                      </li>
-                    ) : (
-                      ""
-                    )
-                )}
-              </ul>
-            )}
-          </div>
+            <AnimatePresence>
+              {isShowingList[item[0].toLowerCase() + item.substring(1)] && (
+                <ul id={`${item.toLowerCase()}-body`}>
+                  {courses[item[0].toLowerCase() + item.substring(1)].map(
+                    (course, i, array) =>
+                      i < 4 ? (
+                        <motion.li
+                          key={i}
+                          initial={{ y: -50, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          exit={{
+                            y: -50,
+                            opacity: 0,
+                            transition: { duration: 0.1 },
+                          }}
+                          transition={{ duration: 0.4 }}
+                        >
+                          {typeof course === "object"
+                            ? `${course.name} - ${course.author}`
+                            : course}
+                        </motion.li>
+                      ) : i === array.length - 1 ? (
+                        <motion.li
+                          key={i}
+                          initial={{ y: -50, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          exit={{
+                            y: -50,
+                            opacity: 0,
+                            transition: { duration: 0.1 },
+                          }}
+                        >
+                          <Link to={`/certificates/${item.toLowerCase()}`}>
+                            See all
+                          </Link>
+                        </motion.li>
+                      ) : (
+                        ""
+                      )
+                  )}
+                </ul>
+              )}
+            </AnimatePresence>
+          </motion.div>
         ))}
       </div>
     </div>
