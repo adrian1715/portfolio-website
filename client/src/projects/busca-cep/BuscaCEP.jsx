@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import ProjectsNote from "../../components/ProjectsNote";
 import { Helmet } from "react-helmet";
 
-// import { dataLoader } from "./app";
-
 export default function BuscaCEP() {
   const [submitHandler, setSubmitHandler] = useState();
 
@@ -25,7 +23,7 @@ export default function BuscaCEP() {
   return (
     <>
       <Helmet>
-        <title>BuscaCEP</title>
+        <title>BuscaCEP - Adrian Lobato</title>
       </Helmet>
 
       <div id="busca-cep">

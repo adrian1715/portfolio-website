@@ -21,7 +21,7 @@ export default function Timer() {
   return (
     <>
       <Helmet>
-        <title>Timer</title>
+        <title>Pomodoro Timer - Adrian Lobato</title>
       </Helmet>
 
       <div id="pomodoro-timer">

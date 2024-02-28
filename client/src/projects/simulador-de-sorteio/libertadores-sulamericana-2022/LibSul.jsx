@@ -20,7 +20,7 @@ export default function LibSul() {
   useEffect(() => {
     imports();
     document.querySelector("#container").style.display = "none";
-    document.querySelector("#vite-icon").remove();
+    document.querySelector("#favicon").remove();
 
     return () => {
       document.querySelector("#container").style.display = "block";
@@ -116,7 +116,7 @@ export default function LibSul() {
   return (
     <>
       <Helmet>
-        <title>Simulador de sorteio</title>
+        <title>Simulador de sorteio - Adrian Lobato</title>
         <link
           id="libertadores-icon"
           rel="icon"

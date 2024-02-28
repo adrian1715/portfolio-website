@@ -14,7 +14,7 @@ export default function Homepage() {
   return (
     <>
       <Helmet>
-        <title>Welcome</title>
+        <title>Home - Adrian Lobato</title>
       </Helmet>
 
       <Home />

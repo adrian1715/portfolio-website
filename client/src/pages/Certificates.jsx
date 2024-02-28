@@ -4,6 +4,7 @@ import { links } from "../App";
 import { toLinkFormatter } from "../utils/toLinkFormatter";
 import { isNumeric } from "../utils/isNumeric";
 import { lowerCaseFirstChar } from "../utils/lowerCaseFirstChar";
+import { Helmet } from "react-helmet";
 
 export const courses = {
   alura: [
@@ -256,6 +257,10 @@ export default function Certificates() {
 
   return (
     <>
+      <Helmet>
+        <title>Certificates - Adrian Lobato</title>
+      </Helmet>
+
       {!isNumeric(lastDirectory) && ( // to avoid showing it for ShowCertificate (Outlet children) routes
         <>
           <h1>Certificates</h1>

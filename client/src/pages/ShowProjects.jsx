@@ -4,6 +4,7 @@ import { Link, useLocation, Outlet } from "react-router-dom";
 import { formatLinkPath } from "../utils/formatLinkPath";
 import { toLinkFormatter } from "../utils/toLinkFormatter";
 import { isCurrentPage } from "../utils/isCurrentPage";
+import { Helmet } from "react-helmet";
 
 export default function ShowProjects() {
   const pathname = useLocation().pathname.endsWith("/")
@@ -40,6 +41,10 @@ export default function ShowProjects() {
 
   return (
     <>
+      <Helmet>
+        <title>Projects - Adrian Lobato</title>
+      </Helmet>
+
       <h1>Select a project</h1>
       <ul>
         {projects.length > 0 ? (

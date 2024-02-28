@@ -20,6 +20,11 @@ export default function RootElement({ children }) {
 
   return (
     <>
+      <Helmet>
+        <title>Adrian Lobato</title>
+        <link id="favicon" rel="icon" href="favicon.ico" type="image/x-icon" />
+      </Helmet>
+
       {!isIndex ? <Navbar links={navLinks} /> : <NavbarNew links={navLinks} />}
       <div id="container" className={`container${!isIndex ? " mt-4" : ""}`}>
         {children && children}

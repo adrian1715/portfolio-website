@@ -7,7 +7,7 @@ import ProjectsNote from "../../../components/ProjectsNote";
 export default function Spotify() {
   useEffect(() => {
     document.getElementById("container").style.display = "none";
-    document.getElementById("vite-icon").remove();
+    document.getElementById("favicon").remove();
 
     return () => {
       document.getElementById("container").style.display = "block";

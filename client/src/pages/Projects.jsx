@@ -6,6 +6,7 @@ import { isCurrentPage } from "../utils/isCurrentPage";
 import { useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import ShowProjects from "./ShowProjects";
+import { Helmet } from "react-helmet";
 
 export const projects = [
   ["Simulators", "Libertadores/Sul-Americana 2022", "Copa do Mundo 2022"],
@@ -34,6 +35,10 @@ export default function Projects() {
 
   return (
     <>
+      <Helmet>
+        <title>Projects - Adrian Lobato</title>
+      </Helmet>
+
       <h1>Projects</h1>
       <ul>
         {projects.length > 0 ? (

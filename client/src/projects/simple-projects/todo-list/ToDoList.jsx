@@ -18,7 +18,7 @@ export default function ToDoList() {
   return (
     <>
       <Helmet>
-        <title>ToDo List</title>
+        <title>ToDo List - Adrian Lobato</title>
       </Helmet>
 
       <div id="todo-list" style={{ marginLeft: "20px" }}>

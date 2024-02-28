@@ -20,7 +20,7 @@ export default function ScoreKeeper() {
   return (
     <>
       <Helmet>
-        <title>Score Keeper</title>
+        <title>Score Keeper - Adrian Lobato</title>
       </Helmet>
 
       {ReactDOM.createPortal(

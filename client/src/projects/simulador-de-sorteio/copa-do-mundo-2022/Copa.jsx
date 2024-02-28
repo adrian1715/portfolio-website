@@ -19,7 +19,7 @@ export default function Copa() {
   useEffect(() => {
     imports();
     document.querySelector("#container").style.display = "none";
-    document.querySelector("#vite-icon").remove();
+    document.querySelector("#favicon").remove();
 
     return () => {
       document.querySelector("#container").style.display = "block";
@@ -73,7 +73,7 @@ export default function Copa() {
   return (
     <>
       <Helmet>
-        <title>Sorteador da Copa</title>
+        <title>Sorteador da Copa - Adrian Lobato</title>
         <link
           id="world-cup-icon"
           rel="shortcut icon"

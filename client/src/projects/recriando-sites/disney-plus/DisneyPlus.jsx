@@ -7,7 +7,7 @@ import ProjectsNote from "../../../components/ProjectsNote";
 export default function DisneyPlus() {
   useEffect(() => {
     document.getElementById("container").style.display = "none";
-    document.getElementById("vite-icon").remove();
+    document.getElementById("favicon").remove();
 
     return () => {
       document.getElementById("container").style.display = "block";
@@ -103,7 +103,7 @@ export default function DisneyPlus() {
                   </div>
                 </div>
                 <a className={`${styles.a} ${styles.seta}`} href="#section-2">
-                  <i class="bi bi-arrow-down"></i>
+                  <i className="bi bi-arrow-down"></i>
                 </a>
               </section>
 

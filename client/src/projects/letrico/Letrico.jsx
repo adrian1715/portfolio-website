@@ -27,7 +27,7 @@ export default function Letrico() {
   return (
     <>
       <Helmet>
-        <title>Letrico</title>
+        <title>Letrico - Adrian Lobato</title>
       </Helmet>
 
       <div id="letrico" className="text-center">
