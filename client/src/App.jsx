@@ -6,8 +6,6 @@ import NotFound from "./pages/NotFound";
 import Projects from "./pages/Projects";
 import Letrico from "./projects/letrico/Letrico";
 import Timer from "./projects/pomodoro-timer/Timer";
-import Test from "./Test";
-import Test2 from "./Test2";
 import Copa from "./projects/simulador-de-sorteio/copa-do-mundo-2022/Copa";
 import LibSul from "./projects/simulador-de-sorteio/libertadores-sulamericana-2022/LibSul";
 import BuscaCEP from "./projects/busca-cep/BuscaCEP";
@@ -44,11 +42,6 @@ const router = createBrowserRouter([
             element: <Certificates />,
             children: [{ path: ":id", element: <ShowCertificate /> }],
           },
-          // {
-          //   path: "youtube",
-          //   element: <Certificates />,
-          //   children: [{ path: ":id", element: <ShowCertificate/> }],
-          // },
           {
             path: "symfonyCasts",
             element: <Certificates />,
