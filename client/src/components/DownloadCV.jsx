@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Spinner from "./Spinner";
 
 const DownloadCV = ({ ...props }) => {
   const [isDownloaded, setIsDownloaded] = useState(false);
@@ -20,7 +21,7 @@ const DownloadCV = ({ ...props }) => {
       URL.revokeObjectURL(url);
 
       setIsDownloaded(true);
-      setTimeout(() => setIsDownloaded(false), 2000);
+      setTimeout(() => setIsDownloaded(false), 1000);
     } catch (error) {
       console.error("Error downloading PDF:", error);
     }
@@ -33,7 +34,10 @@ const DownloadCV = ({ ...props }) => {
           Download CV<i className="bi bi-file-earmark-text-fill ms-2"></i>
         </>
       ) : (
-        "Downloading..."
+        <div className="d-flex align-items-center justify-content-center">
+          <span className="me-3">Downloading...</span>
+          <Spinner />
+        </div>
       )}
     </button>
   );
