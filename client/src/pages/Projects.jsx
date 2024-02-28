@@ -12,8 +12,8 @@ export const projects = [
   ["Letrico"],
   ["Busca CEP"],
   ["Pomodoro Timer"],
-  ["Simple Projects", "Login Panel", "Score Keeper", "ToDo List"],
-  ["Website Clones", "Bauru Empregos", "Disney Plus", "Spotify"],
+  ["Simple Projects", "Score Keeper", "ToDo List"],
+  ["Website Clones", "Disney Plus", "Spotify"],
 ].sort();
 
 export default function Projects() {
@@ -35,7 +35,6 @@ export default function Projects() {
   return (
     <>
       <h1>Projects</h1>
-      {/* {pathname === "/projects" ? ( */}
       <ul>
         {projects.length > 0 ? (
           projects.map((project, i) =>
@@ -64,9 +63,6 @@ export default function Projects() {
           <li>No items were found.</li>
         )}
       </ul>
-      {/* ) : (
-        <ShowProjects />
-      )} */}
     </>
   );
 }

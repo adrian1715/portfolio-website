@@ -72,7 +72,7 @@ const router = createBrowserRouter([
             path: "simple-projects",
             element: <ShowProjects />,
             children: [
-              { path: "login-panel" },
+              // { path: "login-panel" },
               { path: "score-keeper", element: <ScoreKeeper /> },
               { path: "todo-list", element: <ToDoList /> },
             ],
@@ -83,7 +83,7 @@ const router = createBrowserRouter([
             children: [
               { path: "disney-plus", element: <DisneyPlus /> },
               { path: "spotify", element: <Spotify /> },
-              { path: "bauru-empregos" },
+              // { path: "bauru-empregos" },
             ],
           },
           { path: "busca-cep", element: <BuscaCEP /> },
