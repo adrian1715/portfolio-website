@@ -20,13 +20,9 @@ export default function RootElement({ children }) {
 
   return (
     <>
-      <Helmet>
-        <title>Vite + React</title>
-        <link id="vite-icon" rel="icon" type="image/svg+xml" href="/vite.svg" />
-      </Helmet>
-
       {!isIndex ? <Navbar links={navLinks} /> : <NavbarNew links={navLinks} />}
       <div id="container" className={`container${!isIndex ? " mt-4" : ""}`}>
+        {children && children}
         <Outlet />
       </div>
     </>
