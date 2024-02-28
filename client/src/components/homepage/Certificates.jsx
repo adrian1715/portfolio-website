@@ -57,7 +57,8 @@ export default function Certificates({ isShowingList, setIsShowingList }) {
     }));
   };
 
-  const { items } = links.filter((link) => link.path === "/certificates")[0];
+  // const { items } = links.filter((link) => link.path === "/certificates")[0];
+  const items = ["Alura", "Udemy", "Youtube", "SymfonyCasts"];
 
   return (
     <div id="courses" className="row w-100 justify-content-center">
@@ -134,9 +135,9 @@ export default function Certificates({ isShowingList, setIsShowingList }) {
                           }}
                           transition={{ duration: 0.4 }}
                         >
-                          {typeof course === "object"
+                          {course.author
                             ? `${course.name} - ${course.author}`
-                            : course}
+                            : course.name}
                         </motion.li>
                       ) : i === array.length - 1 ? (
                         <motion.li
@@ -149,7 +150,11 @@ export default function Certificates({ isShowingList, setIsShowingList }) {
                             transition: { duration: 0.1 },
                           }}
                         >
-                          <Link to={`/certificates/${item.toLowerCase()}`}>
+                          <Link
+                            to={`/certificates/${
+                              item[0].toLowerCase() + item.substring(1)
+                            }`}
+                          >
                             See all
                           </Link>
                         </motion.li>

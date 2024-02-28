@@ -18,6 +18,7 @@ import Spotify from "./projects/recriando-sites/spotify/Spotify";
 import ScoreKeeper from "./projects/simple-projects/score-keeper/ScoreKeeper";
 import ToDoList from "./projects/simple-projects/todo-list/ToDoList";
 import Certificates from "./pages/Certificates";
+import ShowCertificate from "./pages/ShowCertificate";
 
 const router = createBrowserRouter([
   {
@@ -31,12 +32,28 @@ const router = createBrowserRouter([
         element: <Certificates />,
         navLink: true,
         type: "dropdown",
-        items: ["Alura", "Udemy", "Youtube", "SymfonyCasts"],
+        items: ["Alura", "Udemy", "SymfonyCasts", "Youtube"],
         children: [
-          { path: "alura" },
-          { path: "udemy" },
-          { path: "youtube" },
-          { path: "symfonycasts" },
+          {
+            path: "alura",
+            element: <Certificates />,
+            children: [{ path: ":id", element: <ShowCertificate /> }],
+          },
+          {
+            path: "udemy",
+            element: <Certificates />,
+            children: [{ path: ":id", element: <ShowCertificate /> }],
+          },
+          // {
+          //   path: "youtube",
+          //   element: <Certificates />,
+          //   children: [{ path: ":id", element: <ShowCertificate/> }],
+          // },
+          {
+            path: "symfonyCasts",
+            element: <Certificates />,
+            children: [{ path: ":id", element: <ShowCertificate /> }],
+          },
         ],
       },
       {
