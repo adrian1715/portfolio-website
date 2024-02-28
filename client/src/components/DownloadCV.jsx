@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Spinner from "./Spinner";
+import Spinner from "./UI/Spinner";
 
 const DownloadCV = ({ ...props }) => {
   const [isDownloaded, setIsDownloaded] = useState(false);

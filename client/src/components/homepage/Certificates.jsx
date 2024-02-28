@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { courses } from "../../pages/Certificates";
 import { Link } from "react-router-dom";
 import { links } from "../../App";
-import Modal from "../Modal";
+import Modal from "../UI/Modal";
 import { lowerCaseFirstChar } from "../../utils/lowerCaseFirstChar";
 
 export default function Certificates({ isShowingList, setIsShowingList }) {

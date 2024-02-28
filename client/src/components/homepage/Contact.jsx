@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../../pages/Homepage.module.css";
-import Spinner from "../Spinner";
-import Alert from "../Alert";
+import Spinner from "../UI/Spinner";
+import Alert from "../UI/Alert";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
