@@ -1,15 +1,24 @@
 import React, { Fragment } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import NavLinkDropdown from "./NavLinkDropdown";
 import { formatLinkPath } from "../utils/formatLinkPath";
 import ThemeToggler from "./ThemeToggler";
 
 export default function Navbar({ links }) {
+  const navigate = useNavigate();
+
+  function submitHandler(e) {
+    e.preventDefault();
+    const path = e.target.search.value;
+    e.target.search.value = "";
+    navigate(`/${path}`);
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
-          Portfolio Website
+          Adrian Lobato
         </Link>
         <button
           className="navbar-toggler"
@@ -46,13 +55,14 @@ export default function Navbar({ links }) {
             ))}
             <ThemeToggler />
           </ul>
-          <form className="d-flex" role="search">
+          <form className="d-flex" role="search" onSubmit={submitHandler}>
             <div className="input-group">
               <input
                 className="form-control"
                 type="search"
-                placeholder="Search"
+                placeholder="Search a page"
                 aria-label="Search"
+                name="search"
               />
               <button className="btn btn-outline-success" type="submit">
                 <i className="bi bi-search"></i>
