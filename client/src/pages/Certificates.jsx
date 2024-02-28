@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { links } from "../App";
 import { toLinkFormatter } from "../utils/toLinkFormatter";
 import { isNumeric } from "../utils/isNumeric";
+import { lowerCaseFirstChar } from "../utils/lowerCaseFirstChar";
 
 export const courses = {
   alura: [
@@ -260,22 +261,20 @@ export default function Certificates() {
           <h1>Certificates</h1>
           {items.map(
             (item) =>
-              (lastDirectory === item[0].toLowerCase() + item.substring(1) ||
+              (lastDirectory === lowerCaseFirstChar(item) ||
                 lastDirectory === "certificates") &&
-              hasCertificatedCourses(
-                courses[item[0].toLowerCase() + item.substring(1)]
-              ) && (
+              hasCertificatedCourses(courses[lowerCaseFirstChar(item)]) && (
                 <Fragment key={item}>
                   <h2>{item}</h2>
                   <ul>
-                    {courses[item[0].toLowerCase() + item.substring(1)].map(
+                    {courses[lowerCaseFirstChar(item)].map(
                       (course, i) =>
                         course.certificated && (
                           <li key={i}>
                             <Link
-                              to={`/certificates/${
-                                item[0].toLowerCase() + item.substring(1)
-                              }/${course.id}`}
+                              to={`/certificates/${lowerCaseFirstChar(item)}/${
+                                course.id
+                              }`}
                             >
                               {`${course.name}${
                                 course.author ? ` - ${course.author}` : ""
@@ -285,8 +284,7 @@ export default function Certificates() {
                         )
                     )}
                   </ul>
-                  {lastDirectory ===
-                    item[0].toLowerCase() + item.substring(1) && (
+                  {lastDirectory === lowerCaseFirstChar(item) && (
                     <Link to="/certificates">All certificates</Link>
                   )}
                 </Fragment>
