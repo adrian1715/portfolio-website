@@ -13,7 +13,7 @@ export default function ScrollTop() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY >= 949);
+      setIsScrolled(window.scrollY >= 700);
     };
     window.addEventListener("scroll", handleScroll);
     return () => {

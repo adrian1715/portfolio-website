@@ -89,7 +89,7 @@ export default function Skills() {
               animate={
                 !isShowingList.backend &&
                 !isShowingList.others && {
-                  height: isShowingList.frontend ? "auto" : "6vh",
+                  height: isShowingList.frontend ? "auto" : "30%",
                 }
               }
               id="frontend"
@@ -167,7 +167,7 @@ export default function Skills() {
               animate={
                 !isShowingList.frontend &&
                 !isShowingList.others && {
-                  height: isShowingList.backend ? "auto" : "6vh",
+                  height: isShowingList.backend ? "auto" : "30%",
                 }
               }
               id="backend"
@@ -262,7 +262,7 @@ export default function Skills() {
               animate={
                 !isShowingList.frontend &&
                 !isShowingList.backend && {
-                  height: isShowingList.others ? "auto" : "6vh",
+                  height: isShowingList.others ? "auto" : "30%",
                 }
               }
               id="others"

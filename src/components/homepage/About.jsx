@@ -11,12 +11,12 @@ export default function About() {
       <div id="about-content" className="row justify-content-center">
         <div
           id="about-image"
-          className="col-auto col-lg-5 col-xl-4 mb-4 mb-lg-0"
+          className="col-lg-5 col-xl-4 mb-4 mb-lg-0 d-flex justify-content-center align-items-center"
         >
-          <img src="/images/me-2.png" className="w-100 rounded" />
+          <img src="/images/me-2.png" className="rounded img-fluid" />
         </div>
-        <div className="col-lg-6 d-flex flex-column justify-content-center">
-          <p className="px-md-4 px-lg-3 mb-4 mb-xl-5">
+        <div className="col-lg-6 px-md-4 px-lg-3 d-flex flex-column justify-content-center">
+          <p className="m-0">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
             neque dicta quae illum hic, expedita aspernatur, cum a, blanditiis
             repudiandae assumenda! Tempore iusto facilis tenetur neque, delectus
@@ -26,18 +26,6 @@ export default function About() {
             fuga voluptate modi, perferendis accusantium in facere. Rem,
             blanditiis facere!
           </p>
-          <div className="row justify-content-around">
-            <button
-              className={`col-5 mb-2 mb-lg-0 btn btn-outline-primary ${styles.buttonText}`}
-            >
-              Button 1
-            </button>
-            <button
-              className={`col-5 mb-2 mb-lg-0 btn btn-outline-secondary ${styles.buttonText}`}
-            >
-              Button 2
-            </button>
-          </div>
         </div>
       </div>
     </section>

@@ -1,23 +1,27 @@
-.section {
+.section:first-child {
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 12rem;
+}
+
+.section {
   /* color: black; */
   /* background: #fbe8d2; */
   /* box-shadow: var(--bs-box-shadow); */
   border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 10rem 0;
+}
+
+.section:not(:first-child) h2 {
+  text-align: center;
 }
 
 .profileImg {
   border-radius: 100%;
   max-width: 100%;
   max-height: 25rem;
-}
-
-.xpHeadItem:hover {
-  color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
 /* MEDIUM */

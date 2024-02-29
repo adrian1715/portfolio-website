@@ -8,17 +8,16 @@ export default function Home() {
     <main>
       <section id="home" className={styles.section}>
         <div className="row justify-content-around">
-          <img
-            src="/images/me.jpg"
-            id="home-profile-image"
-            className="rounded-circle col-11 col-sm-auto col-lg-5 col-xl-auto mt-5 mt-lg-0 mb-3 mb-lg-0"
-            style={{ maxHeight: "30rem" }}
-          />
-          <div className="row col-10 col-lg-6 d-flex justify-content-between">
+          <div className="col-6 text-center mb-4 mb-md-0">
+            <img
+              src="/images/me.jpg"
+              id="home-profile-image"
+              className="rounded-circle img-fluid"
+              style={{ maxHeight: "60vh" }}
+            />
+          </div>
+          <div className="row col-auto col-md-6 justify-content-between">
             <div id="home-text" className="text-lg-cente col-10 my-auto">
-              <p id="home-welcome-message" className="m-0">
-                Welcome, I am
-              </p>
               <h1 id="home-title">Adrian Lobato</h1>
               <h2 id="home-subtitle" className="mb-lg-4">
                 Full-Stack Developer
@@ -30,7 +29,7 @@ export default function Home() {
                 nesciunt dolore, exercitationem excepturi et?
               </p>
               <div className="w-100 row">
-                <div className="col-xl-6 px-xl-1 p-xxl-auto">
+                <div className="col-sm-6 col-md-12 col-xl-6 px-xl-1 p-xxl-auto">
                   <a
                     href="#contact"
                     className={`mb-1 mb-xl-0 btn btn-primary px-xl-0 px-xxl-auto py-xl-3 w-100 ${styles.buttonText}`}
@@ -38,14 +37,13 @@ export default function Home() {
                     Get in touch <i className="bi bi-send-fill ms-2"></i>
                   </a>
                 </div>
-                <div className="col-xl-6 px-xl-1 p-xxl-auto">
+                <div className="col-sm-6 col-md-12 col-xl-6 px-xl-1 p-xxl-auto">
                   <DownloadCV
                     className={`btn btn-secondary px-xl-0 px-xxl-auto py-xl-3 w-100 ${styles.buttonText}`}
                   />
                 </div>
               </div>
             </div>
-
             <ul
               id="socials"
               className="list-unstyled d-flex flex-column justify-content-center align-items-end col-1 pe-0"

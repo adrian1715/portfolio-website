@@ -118,7 +118,7 @@ export default function Certificates({ isShowingList, setIsShowingList }) {
               animate={{
                 height: isShowingList[lowerCaseFirstChar(item)]
                   ? "auto"
-                  : "6vh",
+                  : "20%",
               }}
               key={item}
               id={item.toLowerCase()}
