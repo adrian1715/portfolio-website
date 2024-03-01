@@ -42,7 +42,7 @@ export default function Experience() {
           {xpType === "education" && (
             <>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Gestão da Teconologia da Informação</h3>
+                <h3>IT Management</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
@@ -55,7 +55,7 @@ export default function Experience() {
                 </div>
               </div>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Empreendedorismo e Economia</h3>
+                <h3>Entrepreneurship and Economics</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
@@ -68,7 +68,7 @@ export default function Experience() {
                 </div>
               </div>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Ensino Médio e Técnico em Informática</h3>
+                <h3>IT Technical and High School</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
@@ -81,7 +81,7 @@ export default function Experience() {
                 </div>
               </div>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Ensino Fundamental e Ensino Médio</h3>
+                <h3>Middle and High School</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
@@ -89,7 +89,7 @@ export default function Experience() {
                   </span>
                   <span className="col-12 col-md-auto">
                     <i className="bi bi-calendar-week-fill d-inline-block me-2 text-center"></i>
-                    2017 e 2020, respectivamente
+                    2017 e 2020, respectively
                   </span>
                 </div>
               </div>
@@ -98,7 +98,7 @@ export default function Experience() {
           {xpType === "work" && (
             <>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Estágio em Desenvolvimento</h3>
+                <h3>Developer Internship</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
@@ -111,7 +111,7 @@ export default function Experience() {
                 </div>
               </div>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Atendente Ativo e Receptivo</h3>
+                <h3>Active and Receptive Attendant</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
@@ -124,7 +124,7 @@ export default function Experience() {
                 </div>
               </div>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Assistente de TI</h3>
+                <h3>IT Assistant</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
@@ -137,7 +137,7 @@ export default function Experience() {
                 </div>
               </div>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Consultor de Vendas</h3>
+                <h3>Sales Consultant</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />

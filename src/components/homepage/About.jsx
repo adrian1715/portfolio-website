@@ -18,15 +18,20 @@ export default function About() {
           <img src="/images/me-2.png" className="rounded img-fluid" />
         </div>
         <div className="col-lg-6 px-md-4 px-lg-3 d-flex flex-column justify-content-center">
+          <p>
+            I am a 21 years old brazilian boy, passionate about the creative
+            side and always willing and engaged to work on new projects. As I
+            always was interested in technology, programming attracted me for
+            the first time time at the age of 15, especially because of the
+            enormous creative freedom it provides. Since then, I have dedicated
+            myself to studying new technologies and developing different ideas
+            and projects, from games to even websites and applications.
+          </p>
           <p className="m-0">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-            neque dicta quae illum hic, expedita aspernatur, cum a, blanditiis
-            repudiandae assumenda! Tempore iusto facilis tenetur neque, delectus
-            repudiandae nam harum? <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
-            enim minima ab expedita quis tempore, totam nisi soluta aperiam quia
-            fuga voluptate modi, perferendis accusantium in facere. Rem,
-            blanditiis facere!
+            I am a proactive person, easy to get along with others on a daily
+            basis, dedicated and always willing to help and learn with others. I
+            have as a goal to develop skills that contribute to both the hirer
+            and to my own personal and professional growth.
           </p>
         </div>
       </div>

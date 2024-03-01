@@ -23,10 +23,9 @@ export default function Home() {
                 Full-Stack Developer
               </h2>
               <p className="mb-lg-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-                saepe sapiente magnam reprehenderit labore odio nihil quis
-                consequatur. Rerum ducimus voluptatem mollitia fuga expedita at
-                nesciunt dolore, exercitationem excepturi et?
+                Welcome to my website, it's an honor to have you here! I hope
+                you enjoy the content, and that I can somehow contribute with my
+                projects and ideas.
               </p>
               <div className="w-100 row">
                 <div className="col-sm-6 col-md-12 col-xl-6 px-xl-1 p-xxl-auto">
