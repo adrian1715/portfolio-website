@@ -4,10 +4,12 @@ import styles from "../../pages/Homepage.module.css";
 export default function About() {
   return (
     <section id="about" className={styles.section}>
-      <h2 id="about-title" className="fs-1 mb-4 mb-lg-5">
-        About me
-      </h2>
-
+      <div id="about-header" className={styles.sectionHeader}>
+        <h2 id="about-title" className="fs-1">
+          About me
+        </h2>
+        <p id="about-subtitle">Who I am</p>
+      </div>
       <div id="about-content" className="row justify-content-center">
         <div
           id="about-image"

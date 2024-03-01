@@ -14,14 +14,13 @@ export default function Portfolio() {
   ];
 
   return (
-    <section
-      id="portfolio"
-      className={styles.section}
-      style={{ paddingTop: "3rem" }}
-    >
-      <h2 id="portfolio-title" className="fs-1 mb-5">
-        Portfolio
-      </h2>
+    <section id="portfolio" className={styles.section}>
+      <div id="portfolio-header" className={styles.sectionHeader}>
+        <h2 id="portfolio-title" className="fs-1">
+          Portfolio
+        </h2>
+        <p id="portfolio-subtitle">What I've been working on</p>
+      </div>
 
       <div id="portfolioContent" className="carousel slide">
         <div className="carousel-inner">

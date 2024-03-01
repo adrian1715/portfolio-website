@@ -8,9 +8,12 @@ export default function Experience() {
 
   return (
     <section id="experience" className={styles.section}>
-      <h2 id="experience-title" className="fs-1 mb-4 mb-sm-5">
-        Experience
-      </h2>
+      <div id="experience-header" className={styles.sectionHeader}>
+        <h2 id="experience-title" className="fs-1">
+          Experience
+        </h2>
+        <p id="experience-subtitle">My personal and professional journey</p>
+      </div>
       <div id="experience-content" className="w-100">
         <div id="experience-head" className="row justify-content-center mb-4">
           <a

@@ -57,10 +57,12 @@ export default function Contact() {
 
   return (
     <section id="contact" className={styles.section}>
-      <h2 id="contact-title" className="fs-1 mb-5">
-        Contact
-      </h2>
-
+      <div id="contact-header" className={styles.sectionHeader}>
+        <h2 id="contact-title" className="fs-1">
+          Contact
+        </h2>
+        <p id="contact-subtitle">Let's get in touch!</p>
+      </div>
       <div
         id="contact-content"
         className="w-100 d-flex flex-column align-items-center"

@@ -67,19 +67,17 @@ export default function Skills() {
   const isShowingSomeList = Object.values(isShowingList).some((value) => value);
 
   return (
-    <section
-      id="qualifications"
-      className={styles.section}
-      // style={{ justifyContent: "normal" }}
-    >
-      <h2 id="qualifications-title" className="fs-1 mb-5">
-        Qualifications
-      </h2>
+    <section id="qualifications" className={styles.section}>
+      <div id="qualifications-header" className={styles.sectionHeader}>
+        <h2 id="qualifications-title" className="fs-1">
+          Qualifications
+        </h2>
+        <p id="qualification-subtitle">What I can contribute with</p>
+      </div>
       <div id="qualifications-content">
         <div
           id="technologies"
           className="row w-100 flex-column align-items-center mb-4"
-          // style={{ height: "60vh" }}
         >
           <h3 id="technologies-title" className="fs-2">
             Technologies
