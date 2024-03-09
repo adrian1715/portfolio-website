@@ -42,28 +42,26 @@ export default function Projects() {
       <h1>Projects</h1>
       <ul>
         {projects.length > 0 ? (
-          projects.map((project, i) =>
+          projects.map((project, i) => (
             // vanilla javascript projects - <Link> doesn't load them correctly
-            project.length === 1 ? (
-              <li key={i}>
+            <li key={i}>
+              {project.length === 1 ? (
                 <a
                   href={`/projects/${toLinkFormatter(project[0])}`}
-                  className="link text-lg"
+                  className="link"
                 >
                   {project[0]}
                 </a>
-              </li>
-            ) : (
-              <li key={i}>
+              ) : (
                 <Link
                   to={`/projects/${toLinkFormatter(project[0])}`}
-                  className="link text-lg"
+                  className="link"
                 >
                   {project[0]}
                 </Link>
-              </li>
-            )
-          )
+              )}
+            </li>
+          ))
         ) : (
           <li>No items were found.</li>
         )}
