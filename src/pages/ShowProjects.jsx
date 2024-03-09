@@ -36,7 +36,6 @@ export default function ShowProjects() {
         .filter((project) => project.path === directories[2])[0]
         .children.map((project) => project.path);
 
-  // console.log("Projects Urls", projectUrls);
   if (isCurrentPage(pathname, projectUrls)) return <Outlet />;
 
   return (
@@ -50,15 +49,35 @@ export default function ShowProjects() {
         {projects.length > 0 ? (
           projects.map((proj, i) => (
             <li key={i}>
-              <a href={`${pathname}/${proj.path}`} className="link text-lg">
-                {formatLinkPath(`/${proj.path}`)}
-              </a>
+              {/* external project pages */}
+              {proj.path === "bauru-empregos" ? (
+                <a
+                  href="https://github.com/adrian1715/bauru-empregos-clone"
+                  target="_blank"
+                >
+                  {/* {formatLinkPath(`/${proj.path}`)} */}
+                  Bauru Empregos Clone (PHP - Github Repository)
+                </a>
+              ) : proj.path === "login-panel" ? (
+                <a
+                  href="https://github.com/adrian1715/simple-projects/tree/main/login-panel"
+                  target="_blank"
+                >
+                  Simple Login Panel (PHP - Github repository)
+                </a>
+              ) : (
+                // project live demo page
+                <a href={`${pathname}/${proj.path}`} className="link">
+                  {formatLinkPath(`/${proj.path}`)}
+                </a>
+              )}
             </li>
           ))
         ) : (
           <li>No projects available.</li>
         )}
       </ul>
+      <Link to="/projects">All Projects</Link>
     </>
   );
 }

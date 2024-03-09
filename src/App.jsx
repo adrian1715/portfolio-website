@@ -17,6 +17,7 @@ import ScoreKeeper from "./projects/simple-projects/score-keeper/ScoreKeeper";
 import ToDoList from "./projects/simple-projects/todo-list/ToDoList";
 import Certificates from "./pages/Certificates";
 import ShowCertificate from "./pages/ShowCertificate";
+import Redirect from "./pages/Redirect";
 
 const router = createBrowserRouter([
   {
@@ -72,7 +73,12 @@ const router = createBrowserRouter([
             path: "simple-projects",
             element: <ShowProjects />,
             children: [
-              // { path: "login-panel" },
+              {
+                path: "login-panel",
+                element: (
+                  <Redirect path="https://github.com/adrian1715/simple-projects/tree/main/login-panel" />
+                ),
+              },
               { path: "score-keeper", element: <ScoreKeeper /> },
               { path: "todo-list", element: <ToDoList /> },
             ],
@@ -83,7 +89,12 @@ const router = createBrowserRouter([
             children: [
               { path: "disney-plus", element: <DisneyPlus /> },
               { path: "spotify", element: <Spotify /> },
-              // { path: "bauru-empregos" },
+              {
+                path: "bauru-empregos",
+                element: (
+                  <Redirect path="https://github.com/adrian1715/bauru-empregos-clone" />
+                ),
+              },
             ],
           },
           { path: "busca-cep", element: <BuscaCEP /> },
