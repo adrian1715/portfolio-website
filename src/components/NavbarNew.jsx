@@ -35,6 +35,11 @@ export default function NavbarNew({ links: navLinks }) {
     };
   }, []);
 
+  const scrollTop = () => {
+    if (window.innerWidth <= 992) setIsShowingNavbar(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <header className="header">
       <nav
@@ -49,6 +54,7 @@ export default function NavbarNew({ links: navLinks }) {
           <NavLink
             to="/"
             className={({ isActive }) => "navbar-brand col-auto fs-4"}
+            onClick={scrollTop}
           >
             Adrian Lobato
           </NavLink>
