@@ -24,8 +24,8 @@ export default function Home() {
               </h2>
               <p className="mb-lg-4">
                 Welcome to my website, it's an honor to have you here! I hope
-                you enjoy the content, and that I can somehow contribute with my
-                projects and ideas.
+                you enjoy the content, and that I can contribute with my
+                experience and skills.
               </p>
               <div className="w-100 row">
                 <div className="col-sm-6 col-md-12 col-xl-6 px-xl-1 p-xxl-auto">
