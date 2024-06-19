@@ -3,7 +3,7 @@ import Spinner from "./UI/Spinner";
 
 const DownloadCV = ({ ...props }) => {
   const [isDownloaded, setIsDownloaded] = useState(false);
-  const pdfUrl = "/cv-pt.pdf";
+  const pdfUrl = "/cv.pdf";
 
   const handleDownload = async () => {
     try {

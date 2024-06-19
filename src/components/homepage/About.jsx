@@ -19,13 +19,14 @@ export default function About() {
         </div>
         <div className="col-lg-6 px-md-4 px-lg-3 d-flex flex-column justify-content-center">
           <p>
-            I am a 21-year-old Brazilian, passionate about creativity and always
-            willing and engaged in working on new projects. As I have always
-            been interested in technology, programming attracted me for the
-            first time when I was 15, mainly because of the enormous creative
-            freedom it provides. Since then, I have dedicated myself to studying
-            new technologies and developing different ideas and projects, from
-            games to even websites and applications.
+            I am a 21-year-old Italian-Brazilian web developer, passionate about
+            creativity and always willing and engaged in working on new
+            projects. As I have always been interested in technology,
+            programming attracted me for the first time when I was 15, mainly
+            because of the enormous creative freedom it provides. Since then, I
+            have dedicated myself to studying new technologies and developing
+            different ideas and projects, from games to even websites and
+            applications.
           </p>
           <p className="m-0">
             I am a proactive and dedicated person, who is easy to get along with
