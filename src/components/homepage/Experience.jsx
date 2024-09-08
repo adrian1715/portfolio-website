@@ -42,41 +42,29 @@ export default function Experience() {
           {xpType === "education" && (
             <>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>IT Management</h3>
+                <h3>IT Management Graduation</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
                     Anhembi Morumbi
                   </span>
-                  <span className="col-12 col-md-auto">
-                    <i className="bi bi-calendar-week-fill d-inline-block me-2 text-center"></i>
-                    2022 - 2024
-                  </span>
                 </div>
               </div>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Entrepreneurship and Economics</h3>
+                <h3>Entrepreneurship and Economics Studies</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
                     Albany Senior High School
                   </span>
-                  <span className="col-12 col-md-auto">
-                    <i className="bi bi-calendar-week-fill d-inline-block me-2 text-center"></i>
-                    2019
-                  </span>
                 </div>
               </div>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>IT Technical and High School</h3>
+                <h3>IT Technical Course and High School</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
-                    CTI - Colégio Técnico Industrial "Prof. Isaac Portal Roldán
-                  </span>
-                  <span className="col-12 col-md-auto">
-                    <i className="bi bi-calendar-week-fill d-inline-block me-2 text-center"></i>
-                    2018
+                    CTI - Colégio Técnico Industrial "Prof. Isaac Portal Roldán"
                   </span>
                 </div>
               </div>
@@ -85,11 +73,7 @@ export default function Experience() {
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
-                    Colégio São José e Anglo Bauru
-                  </span>
-                  <span className="col-12 col-md-auto">
-                    <i className="bi bi-calendar-week-fill d-inline-block me-2 text-center"></i>
-                    2017 e 2020, respectively
+                    Colégio São José and Anglo Bauru
                   </span>
                 </div>
               </div>
@@ -98,28 +82,11 @@ export default function Experience() {
           {xpType === "work" && (
             <>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Developer Internship</h3>
+                <h3>Web Developer and Customer Support</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
                     Arca Solutions
-                  </span>
-                  <span className="col-12 col-md-auto">
-                    <i className="bi bi-calendar-week-fill d-inline-block me-2 text-center"></i>
-                    2022 - 2023
-                  </span>
-                </div>
-              </div>
-              <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Active and Receptive Attendant</h3>
-                <div className="row justify-content-between">
-                  <span className="col-12 col-md-auto">
-                    <FontAwesomeIcon icon={faSchool} className="me-2" />
-                    Paschoalotto - Setor banco Santander
-                  </span>
-                  <span className="col-12 col-md-auto">
-                    <i className="bi bi-calendar-week-fill d-inline-block me-2 text-center"></i>
-                    2022
                   </span>
                 </div>
               </div>
@@ -130,10 +97,6 @@ export default function Experience() {
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
                     inFlux Bauru
                   </span>
-                  <span className="col-12 col-md-auto">
-                    <i className="bi bi-calendar-week-fill d-inline-block me-2 text-center"></i>
-                    2020 - 2021
-                  </span>
                 </div>
               </div>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
@@ -143,9 +106,14 @@ export default function Experience() {
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
                     inFlux Bauru
                   </span>
+                </div>
+              </div>
+              <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
+                <h3>Active and Receptive Attendant</h3>
+                <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
-                    <i className="bi bi-calendar-week-fill d-inline-block me-2 text-center"></i>
-                    2019 - 2020
+                    <FontAwesomeIcon icon={faSchool} className="me-2" />
+                    Paschoalotto - Santander bank sector
                   </span>
                 </div>
               </div>
