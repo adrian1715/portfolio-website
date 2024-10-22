@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Spinner from "./UI/Spinner";
 
-const DownloadCV = ({ ...props }) => {
+const DownloadCV = ({ pdfUrl, fileName, ...props }) => {
   const [isDownloaded, setIsDownloaded] = useState(false);
-  const pdfUrl = "/cv.pdf";
 
   const handleDownload = async () => {
     try {
@@ -14,7 +13,7 @@ const DownloadCV = ({ ...props }) => {
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = "curriculum.pdf";
+      a.download = fileName;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -31,7 +30,7 @@ const DownloadCV = ({ ...props }) => {
     <button {...props} onClick={handleDownload} disabled={isDownloaded}>
       {!isDownloaded ? (
         <>
-          Download CV<i className="bi bi-file-earmark-text-fill ms-2"></i>
+          <>{props.children}</>
         </>
       ) : (
         <div className="d-flex align-items-center justify-content-center">

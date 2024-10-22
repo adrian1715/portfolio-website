@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../pages/Homepage.module.css";
 import { motion } from "framer-motion";
-import DownloadCV from "../DownloadCV";
+import DownloadButton from "../DownloadButton";
 
 export default function Home() {
   return (
@@ -37,9 +37,14 @@ export default function Home() {
                   </a>
                 </div>
                 <div className="col-sm-6 col-md-12 col-xl-6 px-xl-1 p-xxl-auto">
-                  <DownloadCV
+                  <DownloadButton
                     className={`btn btn-secondary px-xl-0 px-xxl-auto py-xl-3 w-100 ${styles.buttonText}`}
-                  />
+                    pdfUrl="/cv.pdf"
+                    fileName="CV.pdf"
+                  >
+                    Download CV
+                    <i className="bi bi-file-earmark-text-fill ms-2"></i>
+                  </DownloadButton>
                 </div>
               </div>
             </div>
