@@ -31,8 +31,13 @@ const router = createBrowserRouter([
         element: <Certificates />,
         navLink: true,
         type: "dropdown",
-        items: ["Alura", "Udemy", "SymfonyCasts", "Youtube"],
+        items: ["Anhembi", "Alura", "Udemy", "SymfonyCasts", "Youtube"],
         children: [
+          {
+            path: "anhembi",
+            element: <Certificates />,
+            children: [{ path: ":id", element: <ShowCertificate /> }],
+          },
           {
             path: "alura",
             element: <Certificates />,
