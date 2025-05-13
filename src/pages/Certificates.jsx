@@ -147,7 +147,7 @@ export const courses = {
     },
     {
       id: 7,
-      name: "Hábitos: da produtividade às metas pessoas",
+      name: "Hábitos: da produtividade às metas pessoais",
       certified: true,
       onlineUrl:
         "https://cursos.alura.com.br/certificate/ebd54d66-e5ed-4b19-8a14-3c6a427b0e1b?lang=pt_BR",
@@ -263,7 +263,7 @@ export default function Certificates() {
   const { pathname } = useLocation();
   const lastDirectory = pathname.split("/")[pathname.split("/").length - 1];
 
-  const hascertifiedCourses = (arr) =>
+  const hasCertifiedCourses = (arr) =>
     arr.some((item) => typeof item.certified !== "undefined");
 
   return (
@@ -279,7 +279,7 @@ export default function Certificates() {
             (item) =>
               (lastDirectory === lowerCaseFirstChar(item) ||
                 lastDirectory === "certificates") &&
-              hascertifiedCourses(courses[lowerCaseFirstChar(item)]) && (
+              hasCertifiedCourses(courses[lowerCaseFirstChar(item)]) && (
                 <Fragment key={item}>
                   <h2>{item}</h2>
                   <ul>
