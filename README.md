@@ -61,6 +61,7 @@ npm run dev
 
 ```
 portfolio-website-code/
+├── public/                # Static assets
 ├── src/
 │   ├── components/         # Reusable React components
 │   ├── pages/             # Main page components (Home, About, etc.)
@@ -69,9 +70,13 @@ portfolio-website-code/
 │   ├── App.jsx            # Main application component
 │   ├── main.jsx           # Application entry point
 │   └── index.css          # Global styles
-├── public/                # Static assets
-├── package.json           # Project dependencies and scripts
-└── README.md             # Project documentation
+├── .eslintrc.cjs         # ESLint configuration
+├── .gitignore            # Git ignore file
+├── README.md             # Project documentation
+├── index.html            # HTML template
+├── package.json          # Project dependencies and scripts
+├── package-lock.json     # Project dependencies lock file
+└── vite.config.js        # Vite configuration
 ```
 
 ## 🔧 Available Scripts
@@ -119,14 +124,6 @@ npm run build
 
 2. The `dist` folder will contain all the files ready for deployment to any static hosting service (Netlify, Vercel, GitHub Pages, etc.)
 
-## 📧 Contact Integration
-
-The contact form uses EmailJS for email functionality. To set up:
-
-1. Create an account at [EmailJS](https://www.emailjs.com/)
-2. Set up your email service and template
-3. Add your EmailJS credentials to your environment variables or configuration
-
 ## 🤝 Contributing
 
 This is a personal portfolio project, but suggestions and improvements are welcome! Feel free to:
@@ -143,6 +140,8 @@ This project is private and for portfolio purposes.
 ## 🔗 Live Demo
 
 Visit the live website to see the portfolio in action and explore all the features mentioned above.
+
+[portfolio-website-adrian-lobato.onrender.com](https://portfolio-website-adrian-lobato.onrender.com)
 
 ---
 
