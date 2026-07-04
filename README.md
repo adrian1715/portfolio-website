@@ -1,148 +1,120 @@
 # Adrian Lobato - Portfolio Website
 
-Welcome to my portfolio website! This is a modern, responsive web application showcasing my professional information, projects, qualifications, and experience.
+My personal portfolio: a single-page home (Home, About, Portfolio, Experience, Qualifications, Contact) plus fully routed sections for a project archive and certificate archive. No backend - the contact form sends email straight from the browser via EmailJS.
 
-## 🌟 Features
+### Live:
 
-- **Home**: Landing page with introduction and overview
-- **About**: Personal information and professional summary
-- **Qualification**: Educational background and certifications
-- **Experience**: Work history and professional experience
-- **Portfolio**: Showcase of projects with live demos
-- **Contact**: Get in touch form with email integration
+- Render: [portfolio-website-adrian-lobato.onrender.com](https://portfolio-website-adrian-lobato.onrender.com)
+- Vercel: [adrian-lobato-portfolio-website.vercel.app](https://adrian-lobato-portfolio-website.vercel.app/)
 
-## 🛠️ Technologies Used
+## Tech Stack
 
-- **Frontend Framework**: React 18.2.0
-- **Build Tool**: Vite 5.0.8
-- **Styling**: Bootstrap 5.3.2 with Bootstrap Icons
-- **Animations**: Framer Motion 11.0.3
-- **Icons**: FontAwesome (Solid & Brand icons)
-- **Routing**: React Router DOM 6.21.3
-- **Forms**: React Hook Form 7.49.3
-- **Email Service**: EmailJS Browser 4.1.0
-- **PDF Handling**: React PDF 7.7.1
-- **SEO**: React Helmet 6.1.0
-- **HTTP Client**: Axios 1.6.7
+- **React 18** + **Vite 5**
+- **React Router DOM 6** - data router (`createBrowserRouter`), routes defined once in `src/App.jsx`
+- **Bootstrap 5** + Bootstrap Icons for layout/styling
+- **Framer Motion** for animations
+- **FontAwesome** (solid + brand icon sets)
+- **React Hook Form** + **EmailJS** for the contact form (no backend)
+- **React PDF** for in-app certificate/resume viewing
+- **React Helmet** for per-page SEO tags
 
-## 🚀 Getting Started
+## Getting Started
 
-### Prerequisites
-
-Make sure you have the following installed:
-
-- Node.js (version 14 or higher)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
+**Prerequisites:** Node.js and npm.
 
 ```bash
 git clone https://github.com/adrian1715/portfolio-website-code.git
 cd portfolio-website-code
-```
-
-2. Install dependencies:
-
-```bash
 npm install
 ```
 
-3. Start the development server:
+The contact form needs an [EmailJS](https://www.emailjs.com/) account. Create a `.env` file in the project root:
+
+```bash
+VITE_REACT_APP_SERVICE_ID=your_service_id
+VITE_REACT_APP_TEMPLATE_ID=your_template_id
+VITE_REACT_APP_PUBLIC_KEY=your_public_key
+```
+
+Then start the dev server:
 
 ```bash
 npm run dev
 ```
 
-4. Open your browser and visit `http://localhost:5173` (or the port shown in your terminal)
+Vite is pinned to port `3000` (see `vite.config.js`), falling back to the next free port if it's taken.
 
-## 📁 Project Structure
+## Scripts
+
+| Command           | Description                              |
+| ----------------- | ---------------------------------------- |
+| `npm run dev`     | Start the Vite dev server                |
+| `npm run build`   | Production build to `dist/`              |
+| `npm run preview` | Preview the production build locally     |
+| `npm run lint`    | `eslint . --ext js,jsx --max-warnings 0` |
+
+There is no test suite configured in this repo.
+
+## Architecture
+
+### Routing lives in one place
+
+The full route tree is a single nested `createBrowserRouter` config in `src/App.jsx`. Two derived exports are used everywhere else instead of duplicating route data:
+
+- `links` - the entire route tree, introspected to check valid child paths, build nav menus, or look up a route's metadata.
+- `navLinks` - the subset of `links` flagged `navLink: true`, used to build the navbar.
+
+Route nodes carry ad-hoc metadata consumed by pages: `navLink`, `type: "dropdown"`, `items` (display list for dropdown menus), `projects: true`.
+
+### Two navbar/theme-toggler implementations coexist on purpose
+
+`src/pages/RootElement.jsx` renders `Navbar` / `ThemeToggler` on every route **except** the homepage, and `NavbarNew` / `ThemeTogglerNew` on the homepage (`/`). This is an intentional, gradual design refresh - not dead code.
+
+### One scrolling homepage, everything else routed
+
+`src/pages/Homepage.jsx` stacks section components (`Home`, `About`, `Portfolio`, `Experience`, `Qualifications`, `Contact`) as anchors on a single page. Every other route - individual projects, certificates - is a real routed page under `src/pages` / `src/projects`.
+
+### Project listings live in three places - kept in sync by hand
+
+1. **`src/components/homepage/Portfolio.jsx`** - the homepage carousel, a hardcoded array of _featured_ projects only. Entries can override defaults with `website`, `chromeStore`, `github`, or `image`; otherwise the GitHub link and preview image are derived from the project name.
+2. **`src/pages/Projects.jsx`** - the full `/projects` index (`export const projects`). Single-element arrays are standalone projects; multi-element arrays are categories with sub-projects. Cross-referenced against `links` - every entry here needs a matching route in `App.jsx`.
+3. **`src/App.jsx`**'s `/projects` children - the actual routes. Projects with an in-app page get a component; externally-hosted projects (GitHub-only code, Chrome Web Store listings) use `<Redirect path="..." />`, which bounces the browser off-site via `window.location.href`.
+
+`ShowProjects.jsx` renders category listings (Simulators, Simple Projects, Website Clones) and special-cases specific paths to link straight out to GitHub instead of an internal route.
+
+Certificates follow the same pattern (`Certificates.jsx` + `ShowCertificate.jsx`), but their data comes from `public/data/courses.json` instead of a hardcoded array.
+
+### Vanilla-JS projects ported into React
+
+Several `src/projects/*` entries (Letrico, Timer, ScoreKeeper, ToDoList, Copa, LibSul, BuscaCEP) started life as standalone HTML/vanilla-JS mini-apps. They keep an `app.js` alongside their `.jsx` wrapper and `import("./app")` inside a `useEffect` rather than being rewritten as idiomatic React - deliberate, not a bug.
+
+### Shared utilities (`src/utils`)
+
+- `toLinkFormatter(name)` - display name → URL slug.
+- `formatLinkPath(path)` - URL slug → display name.
+- `isCurrentPage(pathname, pagesUrls)` - used by `Projects.jsx` / `ShowProjects.jsx` / `Certificates.jsx` to decide whether to render their own listing UI or delegate to `<Outlet />` because a child route matched.
+
+## Project Structure
 
 ```
-portfolio-website-code/
-├── public/                # Static assets
+portfolio-website/
+├── public/                 # Static assets, courses.json (certificates data)
 ├── src/
-│   ├── components/         # Reusable React components
-│   ├── pages/             # Main page components (Home, About, etc.)
-│   ├── projects/          # Project-related components and data
-│   ├── utils/             # Utility functions and helpers
-│   ├── App.jsx            # Main application component
-│   ├── main.jsx           # Application entry point
-│   └── index.css          # Global styles
-├── .eslintrc.cjs         # ESLint configuration
-├── .gitignore            # Git ignore file
-├── README.md             # Project documentation
-├── index.html            # HTML template
-├── package.json          # Project dependencies and scripts
-├── package-lock.json     # Project dependencies lock file
-└── vite.config.js        # Vite configuration
+│   ├── components/         # Shared components, incl. homepage/* section components
+│   ├── pages/               # Routed pages (Homepage, Projects, Certificates, ...)
+│   ├── projects/             # Individual project pages, some wrapping ported vanilla-JS apps
+│   ├── utils/                 # Routing/formatting helpers
+│   ├── App.jsx               # Route tree (single source of truth for routing)
+│   ├── main.jsx               # Entry point
+│   └── index.css              # Global styles
+├── vite.config.js
+└── package.json
 ```
 
-## 🔧 Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
-- `npm run lint` - Run ESLint for code quality checks
-
-## ✨ Key Features
-
-### Responsive Design
-
-Built with Bootstrap 5, ensuring the website looks great on all devices and screen sizes.
-
-### Smooth Animations
-
-Powered by Framer Motion for fluid, professional animations and transitions.
-
-### Contact Form
-
-Integrated with EmailJS for seamless contact form functionality without a backend server.
-
-### Project Showcase
-
-Dedicated portfolio section with live project demos and detailed descriptions.
-
-### PDF Support
-
-Built-in PDF viewing capabilities for documents like resumes or certificates.
-
-### SEO Optimized
-
-React Helmet integration for better search engine optimization.
-
-## 🌐 Deployment
-
-To deploy the website:
-
-1. Build the project:
+## Deployment
 
 ```bash
 npm run build
 ```
 
-2. The `dist` folder will contain all the files ready for deployment to any static hosting service (Netlify, Vercel, GitHub Pages, etc.)
-
-## 🤝 Contributing
-
-This is a personal portfolio project, but suggestions and improvements are welcome! Feel free to:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## 📄 License
-
-This project is private and for portfolio purposes.
-
-## 🔗 Live Demo
-
-Visit the live website to see the portfolio in action and explore all the features mentioned above.
-
-[portfolio-website-adrian-lobato.onrender.com](https://portfolio-website-adrian-lobato.onrender.com)
-
----
-
-Thank you for visiting my portfolio! I hope you find the content valuable and that my projects and ideas can contribute in some meaningful way.
+`dist/` contains the static build, deployable to any static host. This project is currently deployed on [Render](https://render.com) and [Vercel](https://adrian-lobato-portfolio-website.vercel.app/).
