@@ -29,9 +29,9 @@ const ThemeToggler = ({ borderDark, ...props }) => {
       whileHover={{ scale: 1.1 }}
     >
       {isDark ? (
-        <i className="bi bi-moon"></i>
-      ) : (
         <i className="bi bi-brightness-high"></i>
+      ) : (
+        <i className="bi bi-moon"></i>
       )}
     </motion.div>
   );

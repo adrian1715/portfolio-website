@@ -37,9 +37,9 @@ const ThemeToggler = () => {
         {theme}
       </label>
       {isDark ? (
-        <i className="bi bi-moon"></i>
-      ) : (
         <i className="bi bi-brightness-high"></i>
+      ) : (
+        <i className="bi bi-moon"></i>
       )}
     </div>
   );
