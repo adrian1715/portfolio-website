@@ -10,11 +10,38 @@ export default function Portfolio() {
     {
       name: "desempregados.com",
       website: "https://desempregados-com.onrender.com",
+      description:
+        "A full-stack job platform connecting job seekers and companies in the Brazilian market.",
     },
-    { name: "Website Clones" },
-    { name: "Letrico" },
-    { name: "Simulators" },
-    { name: "Pomodoro Timer" },
+    {
+      name: "Producer",
+      github: "producer-extension",
+      image: "producer-project.jpeg",
+      chromeStore:
+        "https://chromewebstore.google.com/detail/producer-focus-extension/ljihbhechnhegaokmpkhmeonhmlmiijk",
+      description:
+        "A Chrome extension that blocks distracting sites during focus sessions using reusable blocking modes.",
+    },
+    {
+      name: "Website Clones",
+      description:
+        "Pixel-faithful frontend recreations of the Disney+ and Spotify landing pages.",
+    },
+    {
+      name: "Letrico",
+      description:
+        "A Wordle-inspired word-guessing game in Portuguese, built with vanilla JavaScript.",
+    },
+    {
+      name: "Simulators",
+      description:
+        "A draw and match simulator for the World Cup and South American club tournaments.",
+    },
+    {
+      name: "Pomodoro Timer",
+      description:
+        "A simple timer app for managing focused work sessions using the Pomodoro technique.",
+    },
   ];
 
   return (
@@ -37,23 +64,30 @@ export default function Portfolio() {
                 >
                   <div className="border rounded">
                     <img
-                      src={`/images/${toLinkFormatter(proj.name)}-project.png`}
+                      src={`/images/${
+                        proj.image
+                          ? proj.image
+                          : `${toLinkFormatter(proj.name)}-project.png`
+                      }`}
                       className="border rounded w-100 mb-4"
                     />
                     <div>
                       <h3 className="fs-2 text-center">{proj.name}</h3>
+                      <p className="text-center px-4">{proj.description}</p>
                       <div className="row justify-content-center mb-4">
                         <a
                           href={`https://github.com/adrian1715/${
-                            proj.name === "Letrico"
-                              ? "letrico"
-                              : proj.name === "Simulators"
-                              ? "simulador-de-sorteio"
-                              : proj.name === "Pomodoro Timer"
-                              ? "pomodoro-timer"
-                              : proj.name === "Website Clones"
-                              ? "recriando-sites"
-                              : proj.name
+                            proj.github
+                              ? proj.github
+                              : proj.name === "Letrico"
+                                ? "letrico"
+                                : proj.name === "Simulators"
+                                  ? "simulador-de-sorteio"
+                                  : proj.name === "Pomodoro Timer"
+                                    ? "pomodoro-timer"
+                                    : proj.name === "Website Clones"
+                                      ? "recriando-sites"
+                                      : proj.name
                           }`}
                           target="_blank"
                           className="btn btn-outline-primary col-11 col-lg-5 mb-2 mb-lg-0 me-lg-2"
@@ -62,14 +96,24 @@ export default function Portfolio() {
                         </a>
                         <a
                           href={
-                            proj.website
-                              ? proj.website
-                              : `/projects/${toLinkFormatter(proj.name)}`
+                            proj.chromeStore
+                              ? proj.chromeStore
+                              : proj.website
+                                ? proj.website
+                                : `/projects/${toLinkFormatter(proj.name)}`
                           }
                           target="__blank"
                           className="btn btn-outline-secondary col-11 col-lg-5 ms-lg-2"
                         >
-                          Live Demo<i className="bi bi-wifi ms-2"></i>
+                          {proj.chromeStore ? (
+                            <>
+                              Chrome Store<i className="bi bi-google ms-2"></i>
+                            </>
+                          ) : (
+                            <>
+                              Live Demo<i className="bi bi-wifi ms-2"></i>
+                            </>
+                          )}
                         </a>
                       </div>
                     </div>

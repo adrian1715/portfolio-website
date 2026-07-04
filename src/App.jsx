@@ -103,6 +103,18 @@ const router = createBrowserRouter([
             ],
           },
           { path: "busca-cep", element: <BuscaCEP /> },
+          {
+            path: "desempregados.com",
+            element: (
+              <Redirect path="https://desempregados-com.onrender.com" />
+            ),
+          },
+          {
+            path: "producer",
+            element: (
+              <Redirect path="https://chromewebstore.google.com/detail/producer-focus-extension/ljihbhechnhegaokmpkhmeonhmlmiijk" />
+            ),
+          },
         ],
       },
     ],

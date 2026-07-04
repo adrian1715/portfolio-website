@@ -15,7 +15,9 @@ export const projects = [
   ["Pomodoro Timer"],
   ["Simple Projects", "Score Keeper", "ToDo List"],
   ["Website Clones", "Disney Plus", "Spotify"],
-].sort();
+  ["desempregados.com"],
+  ["Producer"],
+].sort((a, b) => a[0].localeCompare(b[0]));
 
 export default function Projects() {
   const { pathname } = useLocation();
@@ -45,7 +47,21 @@ export default function Projects() {
           projects.map((project, i) => (
             // vanilla javascript projects - <Link> doesn't load them correctly
             <li key={i}>
-              {project.length === 1 ? (
+              {project[0] === "Producer" ? (
+                <a
+                  href="https://chromewebstore.google.com/detail/producer-focus-extension/ljihbhechnhegaokmpkhmeonhmlmiijk"
+                  target="_blank"
+                >
+                  Producer
+                </a>
+              ) : project[0] === "desempregados.com" ? (
+                <a
+                  href="https://desempregados-com.onrender.com/"
+                  target="_blank"
+                >
+                  desempregados.com
+                </a>
+              ) : project.length === 1 ? (
                 <a
                   href={`/projects/${toLinkFormatter(project[0])}`}
                   className="link"
