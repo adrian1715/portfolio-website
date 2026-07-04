@@ -19,23 +19,21 @@ export default function About() {
         </div>
         <div className="col-lg-7 col-xl-6 px-md-4 px-lg-3 d-flex flex-column justify-content-center">
           <p>
-            Full-Stack Developer with professional experience in web development
-            and IT support. Graduated in IT Management and pursuing Business
-            Computing at the Technological University of Dublin. Actively
-            building modern web applications using technologies like JavaScript,
-            React, Node.js, PHP, and SQL. EU citizen with full work rights in
-            Ireland, available for immediate start. Passionate about solving
-            real-world problems, creating efficient and scalable solutions that
-            meet deadlines and business needs.
+            Full-Stack Italian-Brazilian developer with experience in web
+            development and IT support. I'm actively building modern
+            applications using technologies like JavaScript, React, Node.js,
+            PHP, and SQL. Currently studying Business Computing at the
+            Technological University of Dublin, with a background in IT
+            Management. I'm an EU citizen through my Italian nationality, with
+            full work rights, currently based in Ireland.
           </p>
           <p className="m-0">
-            I am a proactive and dedicated person, easy to get along with on a
-            daily basis, and always willing to help and learn with others. As I
-            have always been interested in technology, programming attracted me
-            for the first time when I was 15, mainly because of the enormous
-            creative freedom it provides. Since then, I have dedicated myself to
-            studying new technologies and developing different ideas and
-            projects, from games to apps and websites.
+            Proactive and dedicated, I enjoy collaborating with others,
+            continuously learning, and contributing to a positive environment. I
+            focus on turning ideas into practical, efficient, and scalable
+            solutions, with clean implementation and attention to real-world
+            requirements. I'm always looking for new challenges and
+            opportunities to grow both as a developer and as a person.
           </p>
         </div>
       </div>

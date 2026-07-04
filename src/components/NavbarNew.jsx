@@ -6,16 +6,16 @@ import { AnimatePresence, motion, useAnimation } from "framer-motion";
 
 export default function NavbarNew({ links: navLinks }) {
   const [isShowingNavbar, setIsShowingNavbar] = useState(
-    window.innerWidth >= 992
+    window.innerWidth >= 992,
   );
   const [isNavbarButtonClicked, setIsNavbarButtonClicked] = useState(false);
 
   const links = [
     { name: "Home", icon: "house-fill" },
     { name: "About", icon: "info-circle-fill" },
-    { name: "Qualifications", icon: "mortarboard-fill" },
-    { name: "Experience", icon: "briefcase-fill" },
     { name: "Portfolio", icon: "code" },
+    { name: "Experience", icon: "briefcase-fill" },
+    { name: "Qualifications", icon: "mortarboard-fill" },
     { name: "Contact", icon: "envelope-at-fill" },
   ];
 

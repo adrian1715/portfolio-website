@@ -21,11 +21,11 @@ export default function Homepage() {
 
       <About />
 
-      <Qualifications />
+      <Portfolio />
 
       <Experience />
 
-      <Portfolio />
+      <Qualifications />
 
       <Contact />
 

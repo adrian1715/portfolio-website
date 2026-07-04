@@ -102,14 +102,15 @@ export default function Experience() {
           {xpType === "work" && (
             <>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Web Developer and Customer Support</h3>
+                <h3>Cafe Assistant</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
-                    Arca Solutions
+                    il Vicentino - Ireland
                   </span>
                 </div>
               </div>
+
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
                 <h3>IT Assistant</h3>
                 <div className="row justify-content-between">
@@ -120,20 +121,20 @@ export default function Experience() {
                 </div>
               </div>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Sales Consultant</h3>
+                <h3>Web Developer and Customer Support</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
-                    inFlux Bauru
+                    Arca Solutions
                   </span>
                 </div>
               </div>
               <div className="col-12 col-md-11 col-lg-8 col-xl-7 col-xxl-6 mb-4 border rounded p-3">
-                <h3>Active and Receptive Attendant</h3>
+                <h3>General Attendant</h3>
                 <div className="row justify-content-between">
                   <span className="col-12 col-md-auto">
                     <FontAwesomeIcon icon={faSchool} className="me-2" />
-                    Paschoalotto - Santander bank sector
+                    Paschoalotto
                   </span>
                 </div>
               </div>
